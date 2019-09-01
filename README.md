@@ -10,3 +10,4 @@ __MIT__ _but if you improve upon it, please do a pull-request._ __And if you use
 ## Features:
 - Horribly untested
 - Overengineered
+- 1.22 Spec
