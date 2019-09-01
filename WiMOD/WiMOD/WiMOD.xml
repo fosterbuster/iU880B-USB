@@ -1,0 +1,1312 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WiMOD</name>
+    </assembly>
+    <members>
+        <member name="T:WiMOD.DependencyInjection.WiModOptions">
+            <summary>
+            Options which should fit any operating system.
+            </summary>
+        </member>
+        <member name="P:WiMOD.DependencyInjection.WiModOptions.Name">
+            <summary>
+            Gets or sets of the name of the serial port.
+            </summary>
+            <remarks>
+            On UNIX-like systems this shoud be /dev/ttySOMETHINGSOMETHING.
+            On Windows this would be COM[number].
+            </remarks>
+        </member>
+        <member name="P:WiMOD.DependencyInjection.WiModOptions.BaudRate">
+            <summary>
+            Gets or sets the baud rate for the iU880B-stick.
+            </summary>
+        </member>
+        <member name="P:WiMOD.DependencyInjection.WiModOptions.UsePortFinder">
+            <summary>
+            Gets or sets a value indicating whether or not <see cref="P:WiMOD.DependencyInjection.WiModOptions.Name"/> should be used to query a port on Windows.
+            </summary>
+        </member>
+        <member name="T:WiMOD.DependencyInjection.WiModServiceCollectionExtensions">
+            <summary>
+            Extension methods for DI.
+            </summary>
+        </member>
+        <member name="M:WiMOD.DependencyInjection.WiModServiceCollectionExtensions.AddWiModModem(Microsoft.Extensions.DependencyInjection.IServiceCollection,System.Action{WiMOD.DependencyInjection.WiModOptions})">
+            <summary>
+            Adds WiMOD Dependencies.
+            </summary>
+            <param name="services">the service collection to be modified.</param>
+            <param name="setupAction">an action for hooking into.</param>
+            <returns>a modified service collection.</returns>
+        </member>
+        <member name="T:WiMOD.Helpers.Extensions.BitwiseExtensions">
+            <summary>
+            Extension methods for bitwise manipulation and general help.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Helpers.Extensions.BitwiseExtensions.CRC16Table">
+            <summary>
+            CRC CCITTT Table.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.HighNibble(System.Byte)">
+            <summary>
+            Gets the high nibble of the passed <paramref name="b"/>.
+            </summary>
+            <param name="b">the byte.</param>
+            <returns>the high nibble.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.LowNibble(System.Byte)">
+            <summary>
+            Gets the low nibble of the passed <paramref name="b"/>.
+            </summary>
+            <param name="b">the byte.</param>
+            <returns>the low nibble.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.GetBit(System.Byte,System.Int32)">
+            <summary>
+            Gets the bit at the <paramref name="position"/>.
+            </summary>
+            <param name="b">the byte.</param>
+            <param name="position">the bit at the given position to extract.</param>
+            <returns>A boolean indicating if it was 1 or 0.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.EncodeSlipFrame(System.Collections.Generic.IList{System.Byte},System.Boolean)">
+            <summary>
+            Encodes as SLIP.
+            </summary>
+            <param name="bytes">the bytes to be encoded.</param>
+            <param name="appendCrc">optional boolean indicating if CRC16 should be appended, before encoding SLIP.</param>
+            <returns>the <paramref name="bytes"/>, but SLIP encoded.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.HexStringToBytes(System.String)">
+            <summary>
+            Transforms a hex-formatted string to a byte array.
+            </summary>
+            <param name="hexString">the string.</param>
+            <returns>a byte array of the hex-strings binary value.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.StripSlipFrame(System.Collections.Generic.IList{System.Byte},System.Boolean)">
+            <summary>
+            Decodes and strips SLIP.
+            </summary>
+            <param name="bytes">the bytes to be decoded and stripped.</param>
+            <param name="validateCrc">optional boolean indicating if CRC16 should be validated.</param>
+            <returns>the decoded frame.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.Mask(System.Byte,System.Byte)">
+            <summary>
+            Applies a bitmask.
+            </summary>
+            <param name="b">the byte to mask.</param>
+            <param name="mask">the mask to apply.</param>
+            <returns>the masked value of the byte.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.SetBit(System.Byte,System.Int32)">
+            <summary>
+            Sets the bit at the <paramref name="position"/>.
+            </summary>
+            <param name="b">the byte to manipulate.</param>
+            <param name="position">the postion.</param>
+            <returns>the same byte, but different.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.ToHexString(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Parses the passed <paramref name="bytes"/> into a hex-formatted string.
+            </summary>
+            <param name="bytes">The bytes to be parsed.</param>
+            <returns>A hex formatted string.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.AppendCrc(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Appends a CRC16 to the end of the <paramref name="bytes"/>.
+            </summary>
+            <param name="bytes">the bytes to append to.</param>
+            <returns><paramref name="bytes"/>, but with CRC16 appended.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.CalculateCrc(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Calculates the CRC16 CCITTT.
+            </summary>
+            <param name="bytes">the bytes.</param>
+            <returns>CRC16 CCITTT.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.BitwiseExtensions.ValidateCrc(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Validates CRC16.
+            </summary>
+            <param name="bytes">bytes to validate.</param>
+            <returns>A boolean indicating if the CRC is valid.</returns>
+        </member>
+        <member name="T:WiMOD.Helpers.Extensions.EnumExtensions">
+            <summary>
+            Extensions for enum-types.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.EnumExtensions.As``1(System.Byte)">
+            <summary>
+            Transforms a byte to an enum.
+            </summary>
+            <typeparam name="T">the enum type.</typeparam>
+            <param name="value">the byte.</param>
+            <returns>the byte 'cast' to the enum.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.Extensions.EnumExtensions.ToFormattedString``1(``0)">
+            <summary>
+            Formats a string by insering space before uppercase letters.
+            </summary>
+            <typeparam name="T">The type. Should be named integer.</typeparam>
+            <param name="value">the named integer of the enum.</param>
+            <returns>a formatted string.</returns>
+        </member>
+        <member name="T:WiMOD.Helpers.PortFinder">
+            <summary>
+            Finds connected serialdevices automagically on windows machines.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Helpers.PortFinder.#ctor(Microsoft.Extensions.Options.IOptions{WiMOD.DependencyInjection.WiModOptions},Microsoft.Extensions.Logging.ILoggerFactory)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Helpers.PortFinder"/> class.
+            </summary>
+            <param name="options">options object.</param>
+            <param name="loggerFactory">logger factory.</param>
+        </member>
+        <member name="P:WiMOD.Helpers.PortFinder.ConnectedPortName">
+            <summary>
+            Gets the first port number mathcing the device name.
+            </summary>
+            <returns>A string representation of the devices COM-port.</returns>
+        </member>
+        <member name="P:WiMOD.Helpers.PortFinder.ConnectedSerialPort">
+            <summary>
+            Gets a serial connection to the first port number matching the device name.
+            </summary>
+            <returns>the connected <see cref="T:System.IO.Ports.SerialPort"/>.</returns>
+        </member>
+        <member name="M:WiMOD.Helpers.PortFinder.DeviceAvailable">
+            <summary>
+            Checks if any device is available.
+            </summary>
+            <returns>A boolean indicating if any device is available.</returns>
+        </member>
+        <member name="T:WiMOD.Messaging.DeviceManagementMessageIdentifier">
+            <summary>
+            Message idenfiers for device management messages.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.PingRequest">
+            <summary>
+            Ping request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.PingResponse">
+            <summary>
+            Ping response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.DeviceInfoRequest">
+            <summary>
+            Device information request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.DeviceInfoResponse">
+            <summary>
+            Device information response.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.FirmwareVersionRequest">
+            <summary>
+            Firmware version request.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.FirmwareVersionResponse">
+            <summary>
+            Firmware version response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.ResetReqest">
+            <summary>
+            Reset Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.ResetResponse">
+            <summary>
+            Reset Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.SystemOperationModeRequest">
+            <summary>
+            Operation mode request.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.DeviceManagementMessageIdentifier.SystemOperationModeResponse">
+            <summary>
+            Operation mode response.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.EndpointIdentifier">
+            <summary>
+            Endpoint identifier values.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.EndpointIdentifier.DeviceManager">
+            <summary>
+            Device manager Identifier
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.EndpointIdentifier.LoRaWANModem">
+            <summary>
+            LoRaWAN Modem
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.HciMessage">
+            <summary>
+            Base class for HCI messages.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.LoRaWanMessageIdentifier">
+            <summary>
+            Message identifiers for LoRaWAN Messages.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.ActivateDeviceRequest">
+            <summary>
+            Activate Device Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.ActivateDeviceResponse">
+            <summary>
+            Activate Device Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SetJoinParameterRequest">
+            <summary>
+            Set Join Parameters Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SetJoinParameterResponse">
+            <summary>
+            Set Join Parameters Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.JoinNetworkRequest">
+            <summary>
+            Join Network Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.JoinNetworkResponse">
+            <summary>
+            Join Network Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.JoinNetworkTxIndication">
+            <summary>
+            Join Network Transmission Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.JoinNetworkIndication">
+            <summary>
+            Join Network Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SendCDataRequest">
+            <summary>
+            Send Reliable Data Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SendCDataResponse">
+            <summary>
+            Send Reliable Data Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SendCDataTxIndication">
+            <summary>
+            Send Reliable Data Transmission Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.ReceiveCDataIndication">
+            <summary>
+            Reliable Data Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SendUDataRequest">
+            <summary>
+            Send Unreliable Data Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SendUDataResponse">
+            <summary>
+            Send Unreliable Data Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SendUDataTxIndication">
+            <summary>
+            Send Unreliable Data Transmission Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.ReceiveUDataIndication">
+            <summary>
+            Receive Unreliable Data Acknowledgement Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.ReceiveAckIndication">
+            <summary>
+            Receive ACK Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.ReceiveNoDataIndication">
+            <summary>
+            Receive No-Data Indication
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SetRadioStackRequest">
+            <summary>
+            Set Radio Stack Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.SetRadioStackResponse">
+            <summary>
+            Set Radio Stack Response
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.NetworkStatusRequest">
+            <summary>
+            Network Status Request
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.LoRaWanMessageIdentifier.NetworkStatusResponse">
+            <summary>
+            Network Status Response
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Activation.ActivationByPersonalisationResponse">
+            <summary>
+            Response for ABP Request.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.ActivationByPersonalisationResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Activation.ActivationByPersonalisationResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.ActivationByPersonalisationResponse.Status">
+            <summary>
+            Gets the status of the response.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.ActivationByPersonalisationResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication">
+            <summary>
+            This message is sent to the host either after successful reception of a server join response packet or after the expiration of a complete join process without success (the join request will be retransmitted changing the spreading factor from SF7 till SF12, reusing each spreading factor twice).
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.DeviceActivated">
+            <summary>
+            Gets a value indicating whether the device was activated (true), or if an error occured (false).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.DeviceAddress">
+            <summary>
+            Gets the device address.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.ChannelIndex">
+            <summary>
+            Gets the channel index the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.DataRate">
+            <summary>
+            Gets the Data rate (spreading factor) the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.RelativeSignalStrenghtIndicator">
+            <summary>
+            Gets the RSSI value in dBm.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.SignalToNoiseRatio">
+            <summary>
+            Gets the SNR value in dB.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.RxSlot">
+            <summary>
+            Gets the Rx Slot value.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.JoinNetworkIndication.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication">
+            <summary>
+            This HCI message is sent to the host after the join radio message has been sent to the server.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.RadioPacketSent">
+            <summary>
+            Gets a value indicating whether the radio packet was sent (true), or if an error occured (false).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.ChannelIndex">
+            <summary>
+            Gets the channel index the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.DataRate">
+            <summary>
+            Gets the Data rate (spreading factor) the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.TransmittedRadioPackets">
+            <summary>
+            Gets the number of transmitted radio packets of last request.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.TransmitPowerLevel">
+            <summary>
+            Gets the transmit power level configured in transceiver in dBm (min. value 0 dBm).
+            </summary>
+            <remarks>The minimum TRX power level depends on the radio module and it could slightly vary from the given power level value for the low power levels.</remarks>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.MessageAirTimeMillis">
+            <summary>
+            Gets the airrtime in milliseconds of transmitted radio message.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Activation.OverTheAirActivationResponse">
+            <summary>
+            Response for OTAA Request.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.OverTheAirActivationResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Activation.OverTheAirActivationResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.OverTheAirActivationResponse.Status">
+            <summary>
+            Gets the status of the response.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.OverTheAirActivationResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Activation.SetJoinParametersResponse">
+            <summary>
+            Response to a <see cref="!:SetJoinParametersRequest"/>.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.SetJoinParametersResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Activation.SetJoinParametersResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Activation.SetJoinParametersResponse.Status">
+            <summary>
+            Gets the status of the response.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Activation.SetJoinParametersResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse">
+            <summary>
+            Response to a ConfigureRadioStack Request.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse"/> class.
+            </summary>
+            <param name="payload">The payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse.Status">
+            <summary>
+            Gets the status relayed in this message.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Configuration.NetworkStatusIndicator">
+            <summary>
+            Indicates the current network status.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.Configuration.NetworkStatusIndicator.DeviceInactive">
+            <summary>
+            Device inactive
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.Configuration.NetworkStatusIndicator.DeviceActiveByActivationByPersonalisation">
+            <summary>
+            Active (ABP)
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.Configuration.NetworkStatusIndicator.DeviceActiveByOverTheAirActivation">
+            <summary>
+            Active (OTAA)
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.Configuration.NetworkStatusIndicator.DeviceJoiningByOverTheAirActivation">
+            <summary>
+            Joining (OTAA)
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse">
+            <summary>
+            Response to a <see cref="T:WiMOD.Messaging.Tx.LoRa.Configuration.NetworkStatusRequest"/>.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.Status">
+            <summary>
+            Gets the status of the response.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.NetworkStatus">
+            <summary>
+            Gets the status of the network.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.DeviceActive">
+            <summary>
+            Gets a value indicating whether the device is active on the network or not.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.DeviceJoining">
+            <summary>
+            Gets a value indicating whether the device is currently joining the network.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.DeviceAddress">
+            <summary>
+            Gets the device address.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.DataRate">
+            <summary>
+            Gets the current Data rate (spreading factor) of the device.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.PowerLevel">
+            <summary>
+            Gets the current Power Level (EIRP) of the device in dBm.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.MaximumPayloadSize">
+            <summary>
+            Gets current maximum payload size of the device.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Configuration.NetworkStatusResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.DeviceRxHciMessage">
+            <summary>
+            A message received from the Device SAP.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.DeviceRxHciMessage.#ctor(WiMOD.Messaging.DeviceManagementMessageIdentifier,System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.DeviceRxHciMessage"/> class.
+            </summary>
+            <param name="identifier">The identifier of this message.</param>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.DeviceRxHciMessage.MessageIdentifier">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Device.DeviceInformationResponse">
+            <summary>
+            Response to a Device Information Request.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Device.DeviceInformationResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Device.DeviceInformationResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Device.DeviceInformationResponse.Status">
+            <summary>
+            Gets the Status of the response.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Device.DeviceInformationResponse.ModuleType">
+            <summary>
+            Gets the Module Type of the device.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Device.DeviceInformationResponse.DeviceAddress">
+            <summary>
+            Gets the device address of the device.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Device.DeviceInformationResponse.DeviceId">
+            <summary>
+            Gets the devices ID.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Device.DeviceInformationResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Device.PingResponse">
+            <summary>
+            Response to a Ping Request.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Device.PingResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Device.PingResponse"/> class.
+            </summary>
+            <param name="payload">The payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Device.PingResponse.Status">
+            <summary>
+            Gets the status relayed in this message.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Device.PingResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Device.ResetResponse">
+            <summary>
+            Response to a Ping Request.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Device.ResetResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.Device.ResetResponse"/> class.
+            </summary>
+            <param name="payload">The payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.Device.ResetResponse.Status">
+            <summary>
+            Gets the status relayed in this message.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.Device.ResetResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.Device.WiModModuleType">
+            <summary>
+            Module types for WiMod.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWanRxHciMessage">
+            <summary>
+            A message received from the LoRaWAN SAP.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWanRxHciMessage.#ctor(WiMOD.Messaging.LoRaWanMessageIdentifier,System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWanRxHciMessage"/> class.
+            </summary>
+            <param name="identifier">The identifier of this message.</param>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWanRxHciMessage.MessageIdentifier">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.NoDataIndication">
+            <summary>
+            This HCI message is sent to the host in case no expected confirmation or data has been received as a result of prior reliable uplink radio packet.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.NoDataIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.NoDataIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataIndication">
+            <summary>
+            This HCI message is sent to the host after reception of a reliable radio packet containing application payload. The device will acknowledge the reception with a set Ack-Bit in the next reliable/unreliable uplink radio packet to the network server.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataIndication.IsAcknowledgement">
+            <summary>
+            Gets a value indicating whether or not the message is an acknowledgement sent from the server.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication">
+            <summary>
+            This HCI message is sent to the host after the radio packet has been sent.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.RadioPacketSent">
+            <summary>
+            Gets a value indicating whether the radio packet was sent (true), or if an error occured (false).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.ChannelIndex">
+            <summary>
+            Gets the channel index the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.DataRate">
+            <summary>
+            Gets the Data rate (spreading factor) the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.TransmittedRadioPackets">
+            <summary>
+            Gets the number of transmitted radio packets of last request.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.TransmitPowerLevel">
+            <summary>
+            Gets the transmit power level configured in transceiver in dBm (min. value 0 dBm).
+            </summary>
+            <remarks>The minimum TRX power level depends on the radio module and it could slightly vary from the given power level value for the low power levels.</remarks>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.MessageAirTimeMillis">
+            <summary>
+            Gets the airrtime in milliseconds of transmitted radio message.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse">
+            <summary>
+            A LoRaWAN Data Transmission not requiring acknowledgement response.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.Status">
+            <summary>
+            Gets the status relayed in this message.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.TimeUntilChannelAvailableMillis">
+            <summary>
+            Gets the time [ms] remaining till channel available (sent if channel blocked by Duty Cycle).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.BlockedByDutyCycle">
+            <summary>
+            Gets a value indicating whether or not the channel was blocked by duty cycle.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse">
+            <summary>
+            A LoRaWAN Data Transmission not requiring acknowledgement response.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.Status">
+            <summary>
+            Gets the status relayed in this message.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.TimeUntilChannelAvailableMillis">
+            <summary>
+            Gets the time [ms] remaining till channel available (sent if channel blocked by Duty Cycle).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.BlockedByDutyCycle">
+            <summary>
+            Gets a value indicating whether or not the channel was blocked by duty cycle.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataIndication">
+            <summary>
+            This HCI message is sent to the host after reception of an unreliable radio packet containing application payload.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataIndication.IsAcknowledgement">
+            <summary>
+            Gets a value indicating whether or not the message is an acknowledgement sent from the server.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication">
+            <summary>
+            This HCI message is sent to the host after the radio packet has been sent or if the retransmission procedure finishes without success, containing in this case the corresponding error code.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.#ctor(System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication"/> class.
+            </summary>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.RadioPacketSent">
+            <summary>
+            Gets a value indicating whether the radio packet was sent (true), or if an error occured (false).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.ChannelIndex">
+            <summary>
+            Gets the channel index the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.DataRate">
+            <summary>
+            Gets the Data rate (spreading factor) the transmission was sent on.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.TransmittedRadioPackets">
+            <summary>
+            Gets the number of transmitted radio packets of last request.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.TransmitPowerLevel">
+            <summary>
+            Gets the transmit power level configured in transceiver in dBm (min. value 0 dBm).
+            </summary>
+            <remarks>The minimum TRX power level depends on the radio module and it could slightly vary from the given power level value for the low power levels.</remarks>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.MessageAirTimeMillis">
+            <summary>
+            Gets the airrtime in milliseconds of transmitted radio message.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.MaximumNumberOfRetransmissionsReached">
+            <summary>
+            Gets a value indicating whether or not maximum number of retransmissions reached (error).
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.MaximumPayloadSizeExceededForCurrentDataRate">
+            <summary>
+            Gets a value indicating whether or not maximum payload size exceeded for current data rate (error).
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.ResponseStatus">
+            <summary>
+            Device Management Endpoint Status Byte.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.ResponseStatus.#ctor(System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.ResponseStatus"/> class.
+            </summary>
+            <param name="statusByte">the byte indicating the status.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.ResponseStatus.Status">
+            <summary>
+            Gets the status.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.ResponseStatus.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.ResponseStatusIdentifier">
+            <summary>
+            Container for device status bytes and their meaning.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.Ok">
+            <summary>
+            Operation successful
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.Error">
+            <summary>
+            Operation failed
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.CommandNotSupported">
+            <summary>
+            Command is not supported
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.WrongParameter">
+            <summary>
+            HCI message contains wrong parameter
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.StackRunningInWrongMode">
+            <summary>
+            Stack is running in a wrong mode
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.DeviceNotActivated">
+            <summary>
+            Device is not activated
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.DeviceBusyCommandRejected">
+            <summary>
+            Device is busy, command rejected
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.MessageQueueFullCommandRejected">
+            <summary>
+            Message queue is full, command rejected
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.HciMessageLengthIsInvalidOrRadioPayloadSizeTooLarge">
+            <summary>
+            HCI message length is invalid or radio payload size is too large
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.FactorySettingsEepromBlockMissing">
+            <summary>
+            Factory Settings EEPROM block missing
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.ChannelBlockedByDutyCycle">
+            <summary>
+            Channel blocked by Duty Cycle
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Rx.ResponseStatusIdentifier.NoChannelAvailable">
+            <summary>
+            No channel available (e.g. no channel defined for the configured spreading factor)
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Rx.RxHciMessage">
+            <summary>
+            HCI Message received from WiMod Modem.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Rx.RxHciMessage.#ctor(WiMOD.Messaging.EndpointIdentifier,System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Rx.RxHciMessage"/> class.
+            </summary>
+            <param name="endpointIdentifier">the identifier of the endpoint.</param>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.RxHciMessage.EndpointIdentifier">
+            <summary>
+            Gets the identifier of the endpoint this message was sent to.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.RxHciMessage.MessageIdentifier">
+            <summary>
+            Gets the message identifier.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Rx.RxHciMessage.Payload">
+            <summary>
+            Gets or sets the payload of the response.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.Device.DeviceInformationRequest">
+            <summary>
+            This message can be used to identify the local connected device. As a result the device sends a response message which contains a Device Information Field.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.Device.DeviceInformationRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.Device.DeviceInformationRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.Device.DeviceTxMessage">
+            <summary>
+            Message to be transmitted to the device management SAP.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.Device.DeviceTxMessage.#ctor(WiMOD.Messaging.DeviceManagementMessageIdentifier,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.Device.DeviceTxMessage"/> class.
+            </summary>
+            <param name="messageIdentifier">Message type identifier.</param>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Tx.Device.DeviceTxMessage.MessageIdentifier">
+            <summary>
+            Gets the message identifier.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.Device.PingRequest">
+            <summary>
+            This command is used to check if the serial connection is ok and if the connected radiomodule is alive. The host should expect a Ping Response within a very short time interval.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.Device.PingRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.Device.PingRequest"/> class.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.Device.PingRequest.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.Device.ResetRequest">
+            <summary>
+            This message can be used to reset the radio module. The reset will be performed after approx. 200ms.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.Device.ResetRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.Device.ResetRequest"/> class.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.Device.ResetRequest.ToString">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest">
+            <summary>
+            This requesr can be used to activate the device. The passed parameters will be stored in a non-volatile memory.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest.#ctor(System.String,System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest"/> class.
+            </summary>
+            <param name="deviceAddress">A unique 32-Bit device-address, used for radio communication within a network formatted as a Hex-string.</param>
+            <param name="networkSessionKey">A device-specific 128-Bit network session key used for MIC calculation and verification formatted as a Hex-string.</param>
+            <param name="applicationSessionKey">A device-specific 128-Bit application session key used to encrypt and decrypt the payload field of application specific messages formatted as a Hex-string.</param>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest.#ctor(System.Collections.Generic.IList{System.Byte},System.Collections.Generic.IList{System.Byte},System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest"/> class.
+            </summary>
+            <param name="deviceAddress">A unique 32-Bit device-address, used for radio communication within a network.</param>
+            <param name="networkSessionKey">A device-specific 128-Bit network session key used for MIC calculation and verification.</param>
+            <param name="applicationSessionKey">A device-specific 128-Bit application session key used to encrypt and decrypt the payload field of application specific messages.</param>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest">
+            <summary>
+            This request can be used to start the join network procedure. The module sends a join network radio packet and waits for a response from server side.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest">
+            <summary>
+            This request can be used to configure the over-the-air activation parameters which are used during the join procedure.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest.#ctor(System.String,System.String)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest"/> class.
+            </summary>
+            <param name="applicationEui">A globally unique 64-Bit application ID as a Hex-formatted string.</param>
+            <param name="applicationKey">A device-specific 128-Bit AES application key as a Hex-formatted string.</param>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest.#ctor(System.Collections.Generic.IList{System.Byte},System.Collections.Generic.IList{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest"/> class.
+            </summary>
+            <param name="applicationEui">A globally unique 64-Bit application ID.</param>
+            <param name="applicationKey">A device-specific 128-Bit AES application key.</param>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Configuration.ConfigureRadioStackRequest">
+            <summary>
+            This request can be used to configure the integrated radio stack.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Configuration.ConfigureRadioStackRequest.#ctor(WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Byte,System.Byte)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Configuration.ConfigureRadioStackRequest"/> class.
+            </summary>
+            <param name="dataRateIndex">Default Data Rate Index.</param>
+            <param name="adaptiveDataRateEnabled">Adaptive Data Rate enabled/disabled.</param>
+            <param name="dutyCycleControlEnabled">Duty Cycle Control enabled/disabled. (Customer Mode Required).</param>
+            <param name="isClassC">Class indicator. Class A if false, Class C device if true.</param>
+            <param name="extendedOutputFormatEnabled">Extended RF packet output format: Tx/Rx channel info attached if true.</param>
+            <param name="rxMacForwardingEnabled">Rx MAC Command Forwarding enabled/disabled.</param>
+            <param name="powerSavingEnabled">Power Saving. Off is false, automatic if true.</param>
+            <param name="retryAttemps">Maximum number of retries for a reliable radio packet (parameter range: 0 to 254).</param>
+            <param name="headerMacCmdCapacity">Maximum length of the MAC commands to be piggybacked in the header (parameter range: 0 to 15).</param>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex">
+            <summary>
+            Data Rate Index.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex.SpreadingFactor12">
+            <summary>
+            LoRa / SF12. Bandwith kHz: 125. Indicative physical bit rate: 250. Maximum payload size: 51.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex.SpreadingFactor11">
+            <summary>
+            LoRa / SF11. Bandwith kHz: 125. Indicative physical bit rate: 440. Maximum payload size: 51.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex.SpreadingFactor10">
+            <summary>
+            LoRa / SF10. Bandwith kHz: 125. Indicative physical bit rate: 890. Maximum payload size: 51.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex.SpreadingFactor9">
+            <summary>
+            LoRa / SF9. Bandwith kHz: 125. Indicative physical bit rate: 1760. Maximum payload size: 115.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex.SpreadingFactor8">
+            <summary>
+            LoRa / SF8. Bandwith kHz: 125. Indicative physical bit rate: 3125. Maximum payload size: 242.
+            </summary>
+        </member>
+        <member name="F:WiMOD.Messaging.Tx.LoRa.Configuration.DataRateIndex.SpreadingFactor7">
+            <summary>
+            LoRa / SF12. Bandwith kHz: 125. Indicative physical bit rate: 5470. Maximum payload size: 242.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Configuration.NetworkStatusRequest">
+            <summary>
+            This request allows to read the current network / activation status.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Configuration.NetworkStatusRequest.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Configuration.NetworkStatusRequest"/> class.
+            </summary>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Data.ReliableDataMessage">
+            <summary>
+            A LoRaWAN Data Transmission requiring acknowledgement.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Data.ReliableDataMessage.#ctor(System.Byte,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Data.ReliableDataMessage"/> class.
+            </summary>
+            <param name="port">the port to send the message on.</param>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.Data.UnreliableDataMessage">
+            <summary>
+            A LoRaWAN Data Transmission not requiring acknowledgement.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.Data.UnreliableDataMessage.#ctor(System.Byte,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.Data.UnreliableDataMessage"/> class.
+            </summary>
+            <param name="port">The port to use.</param>
+            <param name="payload">The payload.</param>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.LoRa.LoRaWanTxMessage">
+            <summary>
+            Message to be sent to the LoRaWAN SAP.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.LoRa.LoRaWanTxMessage.#ctor(WiMOD.Messaging.LoRaWanMessageIdentifier,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.LoRa.LoRaWanTxMessage"/> class.
+            </summary>
+            <param name="messageIdentifier">the message identifier.</param>
+            <param name="payload">the payload.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Tx.LoRa.LoRaWanTxMessage.MessageIdentifier">
+            <inheritdoc/>
+        </member>
+        <member name="T:WiMOD.Messaging.Tx.TxHciMessage">
+            <summary>
+            HCI Message for transmission to WiMod Modem.
+            </summary>
+        </member>
+        <member name="M:WiMOD.Messaging.Tx.TxHciMessage.#ctor(WiMOD.Messaging.EndpointIdentifier,System.Collections.Generic.List{System.Byte})">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.Messaging.Tx.TxHciMessage"/> class.
+            </summary>
+            <param name="identifier">Identifier for destination endpoint.</param>
+            <param name="payload">payload to be sent.</param>
+        </member>
+        <member name="P:WiMOD.Messaging.Tx.TxHciMessage.EndpointIdentifier">
+            <summary>
+            Gets the identifier of the endpoint this message should be sent to.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Tx.TxHciMessage.Payload">
+            <summary>
+            Gets the payload of this message.
+            </summary>
+        </member>
+        <member name="P:WiMOD.Messaging.Tx.TxHciMessage.MessageIdentifier">
+            <summary>
+            Gets the message identifier.
+            </summary>
+        </member>
+        <member name="T:WiMOD.WiModModem">
+            <summary>
+            Represents a physical iMST WiMOD iU880B LoRa Modem.
+            </summary>
+        </member>
+        <member name="M:WiMOD.WiModModem.#ctor(Microsoft.Extensions.Options.IOptions{WiMOD.DependencyInjection.WiModOptions},Microsoft.Extensions.Logging.ILoggerFactory,WiMOD.Helpers.PortFinder)">
+            <summary>
+            Initializes a new instance of the <see cref="T:WiMOD.WiModModem"/> class.
+            </summary>
+            <param name="options">options object.</param>
+            <param name="loggerFactory">loggerfactory.</param>
+            <param name="portfinder">port finder.</param>
+        </member>
+        <member name="M:WiMOD.WiModModem.SetReceiver(System.Func{WiMOD.Messaging.Rx.RxHciMessage,System.Threading.Tasks.Task})">
+            <summary>
+            Set the action to be triggered, when new data is available.
+            </summary>
+            <param name="onData">the action to be triggered.</param>
+        </member>
+        <member name="M:WiMOD.WiModModem.TransmitMessage(WiMOD.Messaging.Tx.TxHciMessage)">
+            <summary>
+            Transmits the passed <paramref name="message"/> to the physical modem.
+            </summary>
+            <param name="message">the message to be sent.</param>
+            <returns>A <see cref="T:System.Threading.Tasks.Task"/> representing the asynchronous operation.</returns>
+        </member>
+    </members>
+</doc>
