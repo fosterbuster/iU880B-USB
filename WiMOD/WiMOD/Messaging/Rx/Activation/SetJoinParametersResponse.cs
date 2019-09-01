@@ -8,7 +8,7 @@ using System.Collections.Generic;
 namespace WiMOD.Messaging.Rx.Activation
 {
     /// <summary>
-    /// Response to a <see cref="SetJoinParametersRequest"/>.
+    /// Response to a <see cref="WiMOD.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest"/>.
     /// </summary>
     public class SetJoinParametersResponse : LoRaWanRxHciMessage
     {
