@@ -1,11 +1,13 @@
 # WiMOD-Endnode-Adapter
 WiMOD LoRaWAN EndNode Modem HCI .NET Adapter
 ____________________________________________
-An adapter (or whatever you could call it) for communicating with WiMOD LoRaWAN EndNode Modems (tested on the iU880B). Most core functionality is implemented.
+_An adapter (or whatever you could call it) for communicating with WiMOD LoRaWAN EndNode Modems (tested on the iU880B)._
+Most core functionality is implemented.
 
-MIT -> but if you improve upon it, please do a pull-request. And if you use it, i'd love to know!
+__MIT__ _but if you improve upon it, please do a pull-request._ __And if you use it, i'd love to know!__
 
 
 ## Features:
 - Horribly untested
 - Overengineered
+- 1.22 Spec
