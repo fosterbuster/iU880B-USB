@@ -7,4 +7,4 @@ Please refer to the API Documentation.
 
 ## Code of Conduct
 
-**[Available here](CODE_OF_CONDUCT.html)**
+[Available here](~/CODE_OF_CONDUCT.md)
