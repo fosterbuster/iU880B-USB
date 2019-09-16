@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>IU880B-USB | iU880B-USB </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="IU880B-USB | iU880B-USB ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="favicon.ico">
+    <link rel="stylesheet" href="styles/docfx.vendor.css">
+    <link rel="stylesheet" href="styles/docfx.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <meta property="docfx:navrel" content="toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="index.html">
+                <img id="logo" class="svg" src="logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        <div class="article row grid">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="iu880b-usb">IU880B-USB</h1>
+
+<p>.NET Library for communicating with the WiMOD iU880B USB (and iM880B) LoRaWAN Modem.</p>
+<hr>
+<p><em>An adapter (or whatever you could call it) for communicating with IU880B LoRaWAN EndNode Modems (tested on the iU880B).</em>
+Most core functionality is implemented.</p>
+<p><strong>MIT</strong> <em>but if you improve upon it, please do a pull-request.</em> <strong>And if you use it, i'd love to know!</strong></p>
+<p>Available on nuget.org: <a href="https://www.nuget.org/packages/FosterBuster.IU880B"><img src="https://img.shields.io/nuget/v/FosterBuster.IU880B?style=flat-square" alt="nuget"></a></p>
+<h2 id="features">Features:</h2>
+<ul>
+<li>1.22 Spec</li>
+</ul>
+<h2 id="documentation">Documentation</h2>
+<p>Doxygen generated documentation available <a href="https://fosterbuster.github.io/iU880B-USB/">here</a></p>
+<h3 id="example">Example:</h3>
+<p>To get rolling, ensure that the device is configured by sending a NetworkStatusRequest.
+If the device is not active, you have two options: ABP or OTAA. (<a href="https://fosterbuster.github.io/iU880B-USB/html/namespace_foster_buster_1_1_i_u880_b_1_1_messaging_1_1_tx_1_1_lo_ra_1_1_activation.html">relevant classes here</a>)</p>
+<p>To configure for OTAA, first send a SetJoinParameters request, when the device says OK. Send a OTAA reqest.
+For ABP, just send an ABP message.</p>
+<p>Wait for a Join Network Indication. When you get one, you are ready to send messages uplink.</p>
+<p>Send a Reliable Data Message (requires ACK, so you shouldn't really use it, think of the gateways dutycycle), or an Unreliable Data Message (fire and forget).</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/fosterbuster/iU880B-USB/blob/master/README.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="styles/docfx.js"></script>
+    <script type="text/javascript" src="styles/main.js"></script>
+  </body>
+</html>
