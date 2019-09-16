@@ -78,7 +78,7 @@ namespace FosterBuster.IU880B
         /// <param name="onData">the action to be triggered.</param>
         public void SetReceiver(Func<RxHciMessage, Task> onData)
         {
-            _onData = onData ?? throw new ArgumentNullException(nameof(onData));
+            _onData += onData ?? throw new ArgumentNullException(nameof(onData));
         }
 
         /// <summary>
