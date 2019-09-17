@@ -77,7 +77,7 @@ or maybe a completely different strategy.
 
 	var payload = new List<byte>() { 0xFF });
 	
-	await modem.TransmitMessage(new UnreliableDataMessageRequest(5, payload);
+	await modem.TransmitMessage(new UnreliableDataMessage(5, payload);
 
 Usage seems quite self-explanitory. Any any type deriving from [TxHciMessage](xref:FosterBuster.IU880B.Messaging.Tx.TxHciMessage) can be passed, and any _concrete_ type should be passed.
 
@@ -86,23 +86,23 @@ Usage seems quite self-explanitory. Any any type deriving from [TxHciMessage](xr
 
 ## Activation
 
-[Documentation for the TX Activation Namespace](xref:FosterBuster.IU880B.Messaging.Tx.LoRaWan.Activation)
+[Documentation for the TX Activation Namespace](xref:FosterBuster.IU880B.Messaging.Tx.LoRa.Activation)
 
-[Documentation for the RX Activation Namespace](xref:FosterBuster.IU880B.Messaging.Rx.LoRaWan.Activation)
+[Documentation for the RX Activation Namespace](xref:FosterBuster.IU880B.Messaging.Rx.Activation)
 
 Activation can be accomplished in the following two ways:
 
 ### OTAA
 
-1. First configure the OTAA-parameters by sending a [SetJoinParametersRequest](xref:FosterBuster.IU880B.Messaging.Tx.LoRaWan.Activation.SetJoinParametersRequest).
+1. First configure the OTAA-parameters by sending a [SetJoinParametersRequest](xref:FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest).
 
-2. If you get a successful [response](xref:FosterBuster.IU880B.Messaging.Rx.LoRaWan.Activation.SetJoinParametersResponse), go ahead and send a [OverTheAirActivationRequest](xref:FosterBuster.IU880B.Messaging.Tx.LoRaWan.Activation.OverTheAirActivationRequest).
+2. If you get a successful [response](xref:FosterBuster.IU880B.Messaging.Rx.Activation.SetJoinParametersResponse), go ahead and send a [OverTheAirActivationRequest](xref:FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest).
 
-3. When you receive a [JoinNetworkIndication](xref:FosterBuster.IU880B.Messaging.Rx.LoRaWan.Activation.JoinNetworkIndication) the device has been activated.
+3. When you receive a [JoinNetworkIndication](xref:FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkIndication) the device has been activated.
 
 ### ABP
 
-For ABP just send a [ActivationByPersonalisationRequest](xref:FosterBuster.IU880B.Messaging.Tx.LoRaWan.Activation.ActivationByPersonalisationRequest)
+For ABP just send a [ActivationByPersonalisationRequest](xref:FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest)
 
 ## Other
 

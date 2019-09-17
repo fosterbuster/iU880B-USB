@@ -8,7 +8,7 @@ namespace FosterBuster.IU880B.DependencyInjection
     /// <summary>
     /// Options which should fit any operating system.
     /// </summary>
-    public class IU880BOptions
+    public sealed class IU880BOptions
     {
         /// <summary>
         /// Gets or sets of the name of the serial port.

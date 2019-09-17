@@ -8,7 +8,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
     /// <summary>
     /// This message can be used to reset the radio module. The reset will be performed after approx. 200ms.
     /// </summary>
-    public class ResetRequest : DeviceTxMessage
+    public sealed class ResetRequest : DeviceTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ResetRequest"/> class.

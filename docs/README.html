@@ -74,23 +74,27 @@
 
 <p>.NET Library for communicating with the WiMOD iU880B USB (and iM880B) LoRaWAN Modem.</p>
 <hr>
-<p><em>An adapter (or whatever you could call it) for communicating with IU880B LoRaWAN EndNode Modems (tested on the iU880B).</em>
-Most core functionality is implemented.</p>
-<p><strong>MIT</strong> <em>but if you improve upon it, please do a pull-request.</em> <strong>And if you use it, i'd love to know!</strong></p>
-<p>Available on nuget.org: <a href="https://www.nuget.org/packages/FosterBuster.IU880B"><img src="https://img.shields.io/nuget/v/FosterBuster.IU880B?style=flat-square" alt="nuget"></a></p>
+<p><a href="https://www.nuget.org/packages/FosterBuster.IU880B"><img src="https://img.shields.io/nuget/v/FosterBuster.IU880B?style=flat-square" alt="nuget"></a></p>
 <h2 id="features">Features:</h2>
 <ul>
-<li>1.22 Spec</li>
+<li>1.23 HCI Spec</li>
+<li>.NET Standard</li>
 </ul>
 <h2 id="documentation">Documentation</h2>
-<p>Doxygen generated documentation available <a href="https://fosterbuster.github.io/iU880B-USB/">here</a></p>
-<h3 id="example">Example:</h3>
-<p>To get rolling, ensure that the device is configured by sending a NetworkStatusRequest.
-If the device is not active, you have two options: ABP or OTAA. (<a href="https://fosterbuster.github.io/iU880B-USB/html/namespace_foster_buster_1_1_i_u880_b_1_1_messaging_1_1_tx_1_1_lo_ra_1_1_activation.html">relevant classes here</a>)</p>
-<p>To configure for OTAA, first send a SetJoinParameters request, when the device says OK. Send a OTAA reqest.
-For ABP, just send an ABP message.</p>
-<p>Wait for a Join Network Indication. When you get one, you are ready to send messages uplink.</p>
-<p>Send a Reliable Data Message (requires ACK, so you shouldn't really use it, think of the gateways dutycycle), or an Unreliable Data Message (fire and forget).</p>
+<p>Documentation available <a href="https://fosterbuster.github.io/iU880B-USB/">here</a></p>
+<h2 id="getting-started">Getting Started.</h2>
+<ol>
+<li><p>Check out the <a href="https://github.com/fosterbuster/iU880B-USB.git">repo</a> or reference from <a href="https://www.nuget.org/packages/FosterBuster.IU880B">nuget</a> by typing in your <em>Package Manager Console</em></p>
+<pre><code>Install-Package FosterBuster.IU880B -Version 1.0.0
+</code></pre>
+</li>
+<li><p>Have a look at the <a href="Example/Program.cs">example project</a> for a quick example of how to get rolling with activating the device, sending and receiving messages and so forth. If you have any questions or issues, please don't hesitate to ask.</p>
+</li>
+</ol>
+<h2 id="contributing">Contributing</h2>
+<p>All contributions are more than welcome. Before submitting a pull-request, please ensure that the analyzers don't complain.</p>
+<h2 id="license--copyright">License &amp; Copyright</h2>
+<p>iU880B-USB is licensed under the MIT license. Full copyright belongs to <a href="https://github.com/fosterbuster">Poul Erik Venø</a>.</p>
 </article>
           </div>
           

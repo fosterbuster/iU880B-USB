@@ -21,7 +21,7 @@ Documentation available [here](https://fosterbuster.github.io/iU880B-USB/)
 
 
 
-2. Have a look at the [example project](Example/Program.cs) for a quick example of how to get rolling with activating the device, sending and receiving messages and so forth. If you have any questions or issues, please don't hesitate to ask.
+2. Refer to the [Getting Started](https://fosterbuster.github.io/iU880B-USB/articles/GETTING_STARTED.html) document, or have a look at the [example project](Example/Program.cs) for a quick example of how to get rolling with activating the device, sending and receiving messages and so forth. If you have any questions or issues, please don't hesitate to ask.
 
 ## Contributing
 

@@ -8,7 +8,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
     /// <summary>
     /// This command is used to check if the serial connection is ok and if the connected radiomodule is alive. The host should expect a Ping Response within a very short time interval.
     /// </summary>
-    public class PingRequest : DeviceTxMessage
+    public sealed class PingRequest : DeviceTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="PingRequest"/> class.

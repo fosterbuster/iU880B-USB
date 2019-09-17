@@ -1,0 +1,201 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Getting started | iU880B-USB </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Getting started | iU880B-USB ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="getting-started">Getting started</h1>
+
+<p>The API is structured so that all Request/Responses are named the same, and grouped with either TX or RX messages.</p>
+<p>The actual class communicating with the iU880B-USB Dongle is the <a class="xref" href="../api/FosterBuster.IU880B.IU880BModem.html">IU880BModem</a>-class.</p>
+<p>This class should be instantiated using the <em>Microsoft.Extensions.DependencyInjection</em>-library.</p>
+<pre><code>ServiceProvider serviceCollection = new ServiceCollection().AddIU880BModem(x =&gt;
+    {
+        x.Name = &quot;USB&quot;;
+        x.UsePortFinder = true;
+    })
+    .BuildServiceProvider();
+	
+IU880BModem modem = serviceCollection.GetService&lt;IU880BModem&gt;();
+</code></pre>
+<p>Using the <em>serviceCollection</em> to retrieve it, will ensure that you are accessing the class as a singleton.</p>
+<p><strong>...As such you can reference the same instance anywhere in your project.</strong></p>
+<h2 id="iu880bmodem">IU880BModem</h2>
+<p>The IU880BModem class have two public-facing methods:</p>
+<h3 id="setreceiver">SetReceiver</h3>
+<p><a class="xref" href="../api/FosterBuster.IU880B.IU880BModem.html#FosterBuster_IU880B_IU880BModem_SetReceiver_System_Func_FosterBuster_IU880B_Messaging_Rx_RxHciMessage_System_Threading_Tasks_Task__">Documentation for SetReceiver here</a></p>
+<p><strong>Example usage</strong></p>
+<pre><code>modem.SetReceiver(async (RxHciMessage message) =&gt; { await Task.CompletedTask; });
+</code></pre>
+<p>As seen, this method expects to be passed an async delegate with the type <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.RxHciMessage.html">RxHciMessage</a>. It is your responsibility, to derive the actual subtype of this class.</p>
+<p>This can be done, by doing something like this:</p>
+<pre><code>if (message is DataMessageResponse response)
+{
+    // do something with the response!
+}
+</code></pre>
+<p>or</p>
+<pre><code>modem.SetReceiver(async (RxHciMessage message) =&gt; await Handle((dynamic)message));
+
+private async Task Handle(DataMessageResponse response)
+{
+    // do something with the response!
+}
+
+private async Task Handle(NetworkStatusResponse networkStatusResponse)
+{
+    // // do something with the network status response!
+}
+
+// This method is called if a handler for the type could not be resolved.
+private async Task Handle(object obj)
+{
+    throw new NotImplementedException(&quot;Not handled: &quot; + obj.ToString());
+}
+</code></pre>
+<p>or maybe a completely different strategy.</p>
+<div class="NOTE">
+<h5>Note</h5>
+<p>Since <a class="xref" href="../api/FosterBuster.IU880B.IU880BModem.html#FosterBuster_IU880B_IU880BModem_SetReceiver_System_Func_FosterBuster_IU880B_Messaging_Rx_RxHciMessage_System_Threading_Tasks_Task__">SetReceiver</a> is a delegate, you can subscribe to received messages multiple times in your code, by calling it multiple times.</p>
+</div>
+<p><strong>The IU880BModem class will handle any and all marshalling, checksums and so forth.</strong></p>
+<h3 id="transmitmessage">TransmitMessage</h3>
+<p><a class="xref" href="../api/FosterBuster.IU880B.IU880BModem.html#FosterBuster_IU880B_IU880BModem_TransmitMessage_FosterBuster_IU880B_Messaging_Tx_TxHciMessage_">Documentation for TransmitMessage here</a></p>
+<p><strong>Example usage</strong></p>
+<pre><code>var payload = new List&lt;byte&gt;() { 0xFF });
+
+await modem.TransmitMessage(new UnreliableDataMessage(5, payload);
+</code></pre>
+<p>Usage seems quite self-explanitory. Any any type deriving from <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.TxHciMessage.html">TxHciMessage</a> can be passed, and any <em>concrete</em> type should be passed.</p>
+<p><strong>The IU880BModem class will handle any and all marshalling, checksums and so forth.</strong></p>
+<h2 id="activation">Activation</h2>
+<p><a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.html">Documentation for the TX Activation Namespace</a></p>
+<p><a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.Activation.html">Documentation for the RX Activation Namespace</a></p>
+<p>Activation can be accomplished in the following two ways:</p>
+<h3 id="otaa">OTAA</h3>
+<ol>
+<li><p>First configure the OTAA-parameters by sending a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest.html">SetJoinParametersRequest</a>.</p>
+</li>
+<li><p>If you get a successful <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.Activation.SetJoinParametersResponse.html">response</a>, go ahead and send a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest.html">OverTheAirActivationRequest</a>.</p>
+</li>
+<li><p>When you receive a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkIndication.html">JoinNetworkIndication</a> the device has been activated.</p>
+</li>
+</ol>
+<h3 id="abp">ABP</h3>
+<p>For ABP just send a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest.html">ActivationByPersonalisationRequest</a></p>
+<h2 id="other">Other</h2>
+<p>It might be of value to know that the project refers to a collection of extension methods, that might come in handy when working with bytes and iMST-products. These are already referenced by the library.</p>
+<p>Their source are available <a href="https://github.com/fosterbuster/ExtensionMethods/tree/master/ExtensionMethods">here</a></p>
+<p>And available on Nuget <a href="https://www.nuget.org/packages/FosterBuster.Extensions">here</a></p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/fosterbuster/iU880B-USB/blob/master/articles/GETTING_STARTED.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>

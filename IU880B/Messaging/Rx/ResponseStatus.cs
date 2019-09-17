@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx
     /// <summary>
     /// Device Management Endpoint Status Byte.
     /// </summary>
-    public class ResponseStatus
+    public sealed class ResponseStatus
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ResponseStatus"/> class.
