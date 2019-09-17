@@ -26,6 +26,6 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa
         }
 
         /// <inheritdoc/>
-        public override byte MessageIdentifier => (byte)_messageIdentifier;
+        public sealed override byte MessageIdentifier => (byte)_messageIdentifier;
     }
 }
