@@ -8,7 +8,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa.Activation
     /// <summary>
     /// This request can be used to start the join network procedure. The module sends a join network radio packet and waits for a response from server side.
     /// </summary>
-    public class OverTheAirActivationRequest : LoRaWanTxMessage
+    public sealed class OverTheAirActivationRequest : LoRaWanTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OverTheAirActivationRequest"/> class.

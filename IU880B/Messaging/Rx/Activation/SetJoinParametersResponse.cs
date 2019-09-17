@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Activation
     /// <summary>
     /// Response to a <see cref="IU880B.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest"/>.
     /// </summary>
-    public class SetJoinParametersResponse : LoRaWanRxHciMessage
+    public sealed class SetJoinParametersResponse : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetJoinParametersResponse"/> class.

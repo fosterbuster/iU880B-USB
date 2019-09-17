@@ -8,7 +8,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration
     /// <summary>
     /// This request allows to read the current network / activation status.
     /// </summary>
-    public class NetworkStatusRequest : LoRaWanTxMessage
+    public sealed class NetworkStatusRequest : LoRaWanTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NetworkStatusRequest"/> class.

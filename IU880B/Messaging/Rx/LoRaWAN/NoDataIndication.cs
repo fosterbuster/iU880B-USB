@@ -11,7 +11,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN
     /// <summary>
     /// This HCI message is sent to the host in case no expected confirmation or data has been received as a result of prior reliable uplink radio packet.
     /// </summary>
-    public class NoDataIndication : LoRaWanRxHciMessage
+    public sealed class NoDataIndication : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NoDataIndication"/> class.

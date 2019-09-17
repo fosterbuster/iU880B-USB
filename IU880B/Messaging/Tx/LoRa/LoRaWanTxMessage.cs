@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa
     /// <summary>
     /// Message to be sent to the LoRaWAN SAP.
     /// </summary>
-    public class LoRaWanTxMessage : TxHciMessage
+    public abstract class LoRaWanTxMessage : TxHciMessage
     {
         private readonly LoRaWanMessageIdentifier _messageIdentifier;
 
@@ -19,7 +19,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa
         /// </summary>
         /// <param name="messageIdentifier">the message identifier.</param>
         /// <param name="payload">the payload.</param>
-        public LoRaWanTxMessage(LoRaWanMessageIdentifier messageIdentifier, List<byte> payload)
+        protected LoRaWanTxMessage(LoRaWanMessageIdentifier messageIdentifier, List<byte> payload)
             : base(EndpointIdentifier.LoRaWANModem, payload)
         {
             _messageIdentifier = messageIdentifier;

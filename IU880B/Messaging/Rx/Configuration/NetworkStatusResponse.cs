@@ -14,7 +14,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Configuration
     /// <summary>
     /// Response to a <see cref="NetworkStatusRequest"/>.
     /// </summary>
-    public class NetworkStatusResponse : LoRaWanRxHciMessage
+    public sealed class NetworkStatusResponse : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="NetworkStatusResponse"/> class.

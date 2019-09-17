@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN
     /// <summary>
     /// A LoRaWAN Data Transmission not requiring acknowledgement response.
     /// </summary>
-    public class SendReliableDataMessageResponse : DataMessageResponse
+    public sealed class SendReliableDataMessageResponse : DataMessageResponse
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SendReliableDataMessageResponse"/> class.

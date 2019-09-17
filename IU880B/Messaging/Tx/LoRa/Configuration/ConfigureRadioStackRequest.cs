@@ -11,7 +11,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration
     /// <summary>
     /// This request can be used to configure the integrated radio stack.
     /// </summary>
-    public class ConfigureRadioStackRequest : LoRaWanTxMessage
+    public sealed class ConfigureRadioStackRequest : LoRaWanTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigureRadioStackRequest"/> class.

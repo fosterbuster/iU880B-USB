@@ -12,7 +12,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Device
     /// <summary>
     /// Response to a Device Information Request.
     /// </summary>
-    public class DeviceInformationResponse : DeviceRxHciMessage
+    public sealed class DeviceInformationResponse : DeviceRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DeviceInformationResponse"/> class.

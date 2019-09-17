@@ -11,7 +11,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa.Data
     /// <summary>
     /// A LoRaWAN Data Transmission requiring acknowledgement.
     /// </summary>
-    public class ReliableDataMessage : LoRaWanTxMessage
+    public sealed class ReliableDataMessage : LoRaWanTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReliableDataMessage"/> class.

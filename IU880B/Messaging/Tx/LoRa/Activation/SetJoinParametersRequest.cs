@@ -11,7 +11,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa.Activation
     /// <summary>
     /// This request can be used to configure the over-the-air activation parameters which are used during the join procedure.
     /// </summary>
-    public class SetJoinParametersRequest : LoRaWanTxMessage
+    public sealed class SetJoinParametersRequest : LoRaWanTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="SetJoinParametersRequest"/> class.

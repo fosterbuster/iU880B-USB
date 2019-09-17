@@ -11,7 +11,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN
     /// <summary>
     /// This HCI message is sent to the host after the radio packet has been sent or if the retransmission procedure finishes without success, containing in this case the corresponding error code.
     /// </summary>
-    public class UnreliableDataTransmitIndication : DataTransmitIndication
+    public sealed class UnreliableDataTransmitIndication : DataTransmitIndication
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnreliableDataTransmitIndication"/> class.

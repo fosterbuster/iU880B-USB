@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Device
     /// <summary>
     /// Response to a Ping Request.
     /// </summary>
-    public class ResetResponse : DeviceRxHciMessage
+    public sealed class ResetResponse : DeviceRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ResetResponse"/> class.

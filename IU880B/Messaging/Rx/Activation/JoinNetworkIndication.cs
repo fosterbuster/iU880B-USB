@@ -12,7 +12,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Activation
     /// <summary>
     /// This message is sent to the host either after successful reception of a server join response packet or after the expiration of a complete join process without success (the join request will be retransmitted changing the spreading factor from SF7 till SF12, reusing each spreading factor twice).
     /// </summary>
-    public class JoinNetworkIndication : LoRaWanRxHciMessage
+    public sealed class JoinNetworkIndication : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinNetworkIndication"/> class.

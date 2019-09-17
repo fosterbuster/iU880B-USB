@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN
     /// <summary>
     /// This HCI message is sent to the host after reception of an unreliable radio packet containing application payload.
     /// </summary>
-    public class UnreliableDataIndication : DataIndication
+    public sealed class UnreliableDataIndication : DataIndication
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="UnreliableDataIndication"/> class.

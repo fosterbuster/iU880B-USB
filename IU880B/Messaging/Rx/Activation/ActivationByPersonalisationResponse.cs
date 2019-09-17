@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Activation
     /// <summary>
     /// Response for ABP Request.
     /// </summary>
-    public class ActivationByPersonalisationResponse : LoRaWanRxHciMessage
+    public sealed class ActivationByPersonalisationResponse : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivationByPersonalisationResponse"/> class.

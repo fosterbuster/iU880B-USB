@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN
     /// <summary>
     /// This HCI message is sent to the host after reception of a reliable radio packet containing application payload. The device will acknowledge the reception with a set Ack-Bit in the next reliable/unreliable uplink radio packet to the network server.
     /// </summary>
-    public class ReliableDataIndication : DataIndication
+    public sealed class ReliableDataIndication : DataIndication
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ReliableDataIndication"/> class.

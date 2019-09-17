@@ -13,7 +13,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Activation
     /// <summary>
     /// This HCI message is sent to the host after the join radio message has been sent to the server.
     /// </summary>
-    public class JoinNetworkPacketTransmitIndication : LoRaWanRxHciMessage
+    public sealed class JoinNetworkPacketTransmitIndication : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="JoinNetworkPacketTransmitIndication"/> class.

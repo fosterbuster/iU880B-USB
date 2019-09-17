@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRa.Configuration
     /// <summary>
     /// Response to a ConfigureRadioStack Request.
     /// </summary>
-    public class ConfigureRadioStackResponse : LoRaWanRxHciMessage
+    public sealed class ConfigureRadioStackResponse : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ConfigureRadioStackResponse"/> class.

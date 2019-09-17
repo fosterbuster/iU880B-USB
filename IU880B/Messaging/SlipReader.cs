@@ -12,7 +12,7 @@ namespace FosterBuster.IU880B.Messaging
     /// <summary>
     /// Extracts SLIP-delimited bytes from a stream.
     /// </summary>
-    public class SlipReader
+    public sealed class SlipReader
     {
         private const int BufferSize = 1024;
         private const byte SlipEnd = 0xC0;

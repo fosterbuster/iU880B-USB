@@ -22,7 +22,7 @@ namespace FosterBuster.IU880B
     /// <summary>
     /// Represents a physical iMST IU880B iU880B LoRa Modem.
     /// </summary>
-    public class IU880BModem
+    public sealed class IU880BModem
     {
         private static readonly byte[] SerialWakeUpMessage =
             {

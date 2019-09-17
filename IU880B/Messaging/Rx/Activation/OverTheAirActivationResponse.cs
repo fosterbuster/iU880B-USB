@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.Activation
     /// <summary>
     /// Response for OTAA Request.
     /// </summary>
-    public class OverTheAirActivationResponse : LoRaWanRxHciMessage
+    public sealed class OverTheAirActivationResponse : LoRaWanRxHciMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="OverTheAirActivationResponse"/> class.

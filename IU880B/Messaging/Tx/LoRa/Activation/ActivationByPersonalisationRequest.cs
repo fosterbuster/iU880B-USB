@@ -11,7 +11,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRa.Activation
     /// <summary>
     /// This requesr can be used to activate the device. The passed parameters will be stored in a non-volatile memory.
     /// </summary>
-    public class ActivationByPersonalisationRequest : LoRaWanTxMessage
+    public sealed class ActivationByPersonalisationRequest : LoRaWanTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ActivationByPersonalisationRequest"/> class.
