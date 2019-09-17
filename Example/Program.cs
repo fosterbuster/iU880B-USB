@@ -11,12 +11,13 @@ using Microsoft.Extensions.Logging;
 using FosterBuster.Extensions;
 using FosterBuster.IU880B.Messaging.Rx;
 using FosterBuster.IU880B;
-using FosterBuster.IU880B.Messaging.Tx.LoRa.Data;
-using FosterBuster.IU880B.Messaging.Rx.Configuration;
-using FosterBuster.IU880B.Messaging.Rx.LoRaWAN;
-using FosterBuster.IU880B.Messaging.Tx.LoRa.Activation;
+
 using FosterBuster.IU880B.DependencyInjection;
-using FosterBuster.IU880B.Messaging.Rx.Activation;
+using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data;
+using FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation;
+using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation;
+using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration;
+using FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data;
 
 namespace Example
 {
@@ -128,7 +129,7 @@ namespace Example
             });
 
             // Transmit a message. Unreliable just means that we do not want an ACK from the gateway - Reliable makes the device spam until it gets an ACK.
-            await modem.TransmitMessage(new UnreliableDataMessage(5, new List<byte>() { 0xFF }));
+            await modem.TransmitMessage(new UnreliableDataMessageRequest(5, new List<byte>() { 0xFF }));
 
             Console.ReadKey(true);
         }
