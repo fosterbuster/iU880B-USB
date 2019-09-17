@@ -33,7 +33,43 @@
       "output": {
         ".html": {
           "relative_path": "README.html",
-          "hash": "Jily0ZtL4rsB9NgV2x+T/w=="
+          "hash": "8XzKrJE6pg12xOWvlOhpkQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Bug.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Bug.html",
+          "hash": "JumBoeQQrclJdOpBe2UC9w=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.Dongle.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.Dongle.html",
+          "hash": "3ggbcxOJz3mf5OoMQVwSOg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/Demo.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/Demo.html",
+          "hash": "TIUpJ6zlMddK4hh9GwdFVQ=="
         }
       },
       "is_incremental": false,
@@ -45,7 +81,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.DependencyInjection.IU880BOptions.html",
-          "hash": "3LIjB05Ys1o41cNjz5s2NA=="
+          "hash": "Ihsy4wq05erapnJOUIT5kg=="
         }
       },
       "is_incremental": false,
@@ -57,7 +93,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.DependencyInjection.IU880BServiceCollectionExtensions.html",
-          "hash": "ql++UbbEmTwVla5tDIMnNA=="
+          "hash": "U0E2/m7jBnUb2kjp1crKqw=="
         }
       },
       "is_incremental": false,
@@ -81,7 +117,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.IU880BModem.html",
-          "hash": "tnzBTeoAhkyewc5rJJNW/w=="
+          "hash": "ihnUesvW58/JjYvJKOPknQ=="
         }
       },
       "is_incremental": false,
@@ -93,7 +129,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.DataRateIndex.html",
-          "hash": "m8PSR03ZfZgRyUe6bmeiXQ=="
+          "hash": "blLYJQCv5ZtsiCNtIKIoSQ=="
         }
       },
       "is_incremental": false,
@@ -105,7 +141,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.DeviceManagementMessageIdentifier.html",
-          "hash": "XUosMKqB9jRIKg9dD0q1cw=="
+          "hash": "scfrZm7nA4S71KO8S4mPAQ=="
         }
       },
       "is_incremental": false,
@@ -117,7 +153,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.EndpointIdentifier.html",
-          "hash": "8+9SX095db+imiXbRywcYg=="
+          "hash": "g1rytUuUGd8naRe0ikbcCA=="
         }
       },
       "is_incremental": false,
@@ -129,7 +165,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.HciMessage.html",
-          "hash": "4eX47eDgCscyJyDdrQnwww=="
+          "hash": "KW/XnJ80CrtJpwydIojukQ=="
         }
       },
       "is_incremental": false,
@@ -141,115 +177,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.LoRaWanMessageIdentifier.html",
-          "hash": "rtdOkT3uHhm4fJs3skN7NQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.ActivationByPersonalisationResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.ActivationByPersonalisationResponse.html",
-          "hash": "CMvQisNleo7FlgC4RgRO0Q=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkIndication.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkIndication.html",
-          "hash": "OhooH7oSMBiFLryEBY020w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkPacketTransmitIndication.html",
-          "hash": "Ocvh0NLATlZ4w65Q5KqKsg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.OverTheAirActivationResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.OverTheAirActivationResponse.html",
-          "hash": "qxUg79jajKnI+AchoHBOnw=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.SetJoinParametersResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.SetJoinParametersResponse.html",
-          "hash": "bSwDKVvPJWpqJo3XrLT5sg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Activation.html",
-          "hash": "tgjLzJ1mtV5ZzuLPWuwcow=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Configuration.NetworkStatusIndicator.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Configuration.NetworkStatusIndicator.html",
-          "hash": "KwDgmZp/IjYXSwseIfDMEQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Configuration.NetworkStatusResponse.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Configuration.NetworkStatusResponse.html",
-          "hash": "72y1TcxNJFNMXDnA5sVvSg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Configuration.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Configuration.html",
-          "hash": "NzAv8QL/8aMB7027myA+OQ=="
+          "hash": "rIZWCb3AW01txSmjbSx97A=="
         }
       },
       "is_incremental": false,
@@ -261,7 +189,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Device.DeviceInformationResponse.html",
-          "hash": "nXdWHj0zrIGpRWlBHVizQQ=="
+          "hash": "kj5bfwO2bR7kUGJ9jpbA1w=="
         }
       },
       "is_incremental": false,
@@ -273,7 +201,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Device.IU880BModuleType.html",
-          "hash": "6MapWbDjXESDIOePjlISKg=="
+          "hash": "y6fUkGMb1/ar62M03pELpQ=="
         }
       },
       "is_incremental": false,
@@ -285,7 +213,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Device.PingResponse.html",
-          "hash": "4jORysnZq97ADQN/QzVSWA=="
+          "hash": "x1ydtB/3Owqm6k1qx24ltw=="
         }
       },
       "is_incremental": false,
@@ -297,7 +225,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.Device.ResetResponse.html",
-          "hash": "9I3f4Mtl78liBztf7oK4OA=="
+          "hash": "y2Q2bvz+DNeLI9x34zjoLg=="
         }
       },
       "is_incremental": false,
@@ -321,7 +249,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.DeviceRxHciMessage.html",
-          "hash": "GbVpgS1HGV3aayD4/KOdpg=="
+          "hash": "KQyXYXG/XRK3jwYhQ85Paw=="
         }
       },
       "is_incremental": false,
@@ -329,11 +257,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.ActivationByPersonalisationResponse.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRa.Configuration.ConfigureRadioStackResponse.html",
-          "hash": "tmtFI/zx/bYdjH5cYSUGlA=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.ActivationByPersonalisationResponse.html",
+          "hash": "29DGigw4UdoZiw8EvxDh3Q=="
         }
       },
       "is_incremental": false,
@@ -341,11 +269,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRa.Configuration.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.JoinNetworkIndication.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRa.Configuration.html",
-          "hash": "6mN8sSgF2C6T+2/WgIAHsA=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.JoinNetworkIndication.html",
+          "hash": "4NOq6RWFaFivuKpizPC4iw=="
         }
       },
       "is_incremental": false,
@@ -353,11 +281,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.DataIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.JoinNetworkPacketTransmitIndication.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.DataIndication.html",
-          "hash": "SmUhKD+omu8M4PJeBdcGeQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.JoinNetworkPacketTransmitIndication.html",
+          "hash": "enPBfRAo6mIeJhlbOjSGdA=="
         }
       },
       "is_incremental": false,
@@ -365,11 +293,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.DataMessageResponse.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.OverTheAirActivationResponse.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.DataMessageResponse.html",
-          "hash": "HWmOIcjELdEdd3xnXtWDWA=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.OverTheAirActivationResponse.html",
+          "hash": "FjYqY2INudvB7gru7Q5/1w=="
         }
       },
       "is_incremental": false,
@@ -377,11 +305,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.DataTransmitIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.SetJoinParametersResponse.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.DataTransmitIndication.html",
-          "hash": "uQfpufs82tWkiSlg1kLkgw=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.SetJoinParametersResponse.html",
+          "hash": "0VhaXHuXFiNDGMhlGTzcvg=="
         }
       },
       "is_incremental": false,
@@ -389,11 +317,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.NoDataIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.NoDataIndication.html",
-          "hash": "KgOSikYCwRm/11wZBQSzWA=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.html",
+          "hash": "OH5khFCVQvJyRcDIoA+Cdw=="
         }
       },
       "is_incremental": false,
@@ -401,11 +329,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.NoDataIndicationErrorCodes.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.ConfigureRadioStackResponse.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.NoDataIndicationErrorCodes.html",
-          "hash": "BqcweyZxGexqEg3KmlIKTQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.ConfigureRadioStackResponse.html",
+          "hash": "qYRA++U94jtN4eKaMWsEbQ=="
         }
       },
       "is_incremental": false,
@@ -413,11 +341,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.ReliableDataIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.NetworkStatusIndicator.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.ReliableDataIndication.html",
-          "hash": "sQaZCdSibOb9dtKbqu5bYg=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.NetworkStatusIndicator.html",
+          "hash": "X5sFOL751bOT2I6BcK7U9w=="
         }
       },
       "is_incremental": false,
@@ -425,11 +353,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.NetworkStatusResponse.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.ReliableDataTransmitIndication.html",
-          "hash": "sdXUp/bfrBFNPxKABmHQDQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.NetworkStatusResponse.html",
+          "hash": "4XSj1jJek4L4gzQiiDuxWg=="
         }
       },
       "is_incremental": false,
@@ -437,11 +365,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.SendReliableDataMessageResponse.html",
-          "hash": "evOIWJHQhn3U0TFkINqX3Q=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration.html",
+          "hash": "QcgHVBfAVwjqR0UEg36Qfg=="
         }
       },
       "is_incremental": false,
@@ -449,11 +377,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.DataIndication.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.SendUnreliableDataMessageResponse.html",
-          "hash": "4aLlBXtULUWz+kk8d2zzeQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.DataIndication.html",
+          "hash": "bO3R6GWqmYWGSKxHUUUUHw=="
         }
       },
       "is_incremental": false,
@@ -461,11 +389,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.UnreliableDataIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.DataMessageResponse.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.UnreliableDataIndication.html",
-          "hash": "QK2C7FZw1Ta4YSE4uizIug=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.DataMessageResponse.html",
+          "hash": "BWdwTsTxWv8e95ggyvUypw=="
         }
       },
       "is_incremental": false,
@@ -473,11 +401,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.DataTransmitIndication.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.UnreliableDataTransmitIndication.html",
-          "hash": "MxxVtNo8pOb438IisM+Oeg=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.DataTransmitIndication.html",
+          "hash": "UMQG+NGIAAVBw1xbqsHspw=="
         }
       },
       "is_incremental": false,
@@ -485,11 +413,107 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.NoDataIndication.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.html",
-          "hash": "awdlZOy5b1Fgq1rzlX9FuQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.NoDataIndication.html",
+          "hash": "K77bRoEyyjqnLaA3/BvQoQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.NoDataIndicationErrorCodes.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.NoDataIndicationErrorCodes.html",
+          "hash": "jQjj7izvAIoDZg0emTEB2g=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.ReliableDataIndication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.ReliableDataIndication.html",
+          "hash": "Q2kGTgtwFfettA7REGo2eA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.ReliableDataMessageResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.ReliableDataMessageResponse.html",
+          "hash": "/wcnxWfXTlbYkgUq8+yDtw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.ReliableDataTransmitIndication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.ReliableDataTransmitIndication.html",
+          "hash": "AY0Hbsg7LpiNMcKStT3UPw=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.UnreliableDataIndication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.UnreliableDataIndication.html",
+          "hash": "aLhYNBLufMa2bkBCUACmVQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.UnreliableDataMessageResponse.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.UnreliableDataMessageResponse.html",
+          "hash": "PX4sc6ojU72rQ0AePs5Iig=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.UnreliableDataTransmitIndication.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.UnreliableDataTransmitIndication.html",
+          "hash": "jZ4JRyELqPwnAXz2MU6lVg=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data.html",
+          "hash": "KmJVY3beHMCuvim+6mm/Gw=="
         }
       },
       "is_incremental": false,
@@ -501,7 +525,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.LoRaWanRxHciMessage.html",
-          "hash": "rpzRCJbXCsip5FIKSpunaA=="
+          "hash": "+Z+/vou7E1OlOtKGKPxl2Q=="
         }
       },
       "is_incremental": false,
@@ -513,7 +537,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.ResponseStatus.html",
-          "hash": "s7oI27V6d0biXZ46hexZlw=="
+          "hash": "q+5j9o1hMJ84NaEg1wvwRA=="
         }
       },
       "is_incremental": false,
@@ -525,7 +549,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.ResponseStatusIdentifier.html",
-          "hash": "RJTZ1drvfE6B2e5/lm10dw=="
+          "hash": "wTqNsTngeHZ7xQaWlo1qJA=="
         }
       },
       "is_incremental": false,
@@ -537,7 +561,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Rx.RxHciMessage.html",
-          "hash": "7krM763Lz/iTn9gfFVVjwA=="
+          "hash": "MDPacYSrmhD7IFmuprkGTg=="
         }
       },
       "is_incremental": false,
@@ -561,7 +585,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.SlipReader.html",
-          "hash": "N0hMWvxLp9DoitSkfr0Oqg=="
+          "hash": "/7WRGn8h03Hbm9dkPqrfjA=="
         }
       },
       "is_incremental": false,
@@ -573,7 +597,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.Device.DeviceInformationRequest.html",
-          "hash": "fw3cyAyvEg3NvLv/To2hFA=="
+          "hash": "iGeND2V7On9EkYW/qV6KEw=="
         }
       },
       "is_incremental": false,
@@ -585,7 +609,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.html",
-          "hash": "BOgrispYK+tqBe4+QDbsyQ=="
+          "hash": "08nzrF30JaBm6Bl1hJDMoQ=="
         }
       },
       "is_incremental": false,
@@ -597,7 +621,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.Device.PingRequest.html",
-          "hash": "VuPscAUSsMS7URxb4+n7XA=="
+          "hash": "Sqq6HpgP1rP8mAFsbbH0gw=="
         }
       },
       "is_incremental": false,
@@ -609,7 +633,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.Device.ResetRequest.html",
-          "hash": "GeSXPzHpCMYNWmQAvwuICw=="
+          "hash": "2ZG0AjSJoi3cCBL4FcKh1Q=="
         }
       },
       "is_incremental": false,
@@ -629,11 +653,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.ActivationByPersonalisationRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest.html",
-          "hash": "afkQqRa0JWfAxLwmTtxx+Q=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.ActivationByPersonalisationRequest.html",
+          "hash": "+KrBFOkbK0n9TGYftCw1jQ=="
         }
       },
       "is_incremental": false,
@@ -641,11 +665,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.OverTheAirActivationRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest.html",
-          "hash": "VC+loaKuQMibICzoozDp2Q=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.OverTheAirActivationRequest.html",
+          "hash": "HkgkoaPaAsb5H8XghmXvQQ=="
         }
       },
       "is_incremental": false,
@@ -653,11 +677,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.SetJoinParametersRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest.html",
-          "hash": "7ppojlFjUGIR7WK4mhUAMA=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.SetJoinParametersRequest.html",
+          "hash": "Q9zSkzneRAMUMexq4XXYRg=="
         }
       },
       "is_incremental": false,
@@ -665,11 +689,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.html",
-          "hash": "3MSD2ugZB2+yxu6pJ9jYRg=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.html",
+          "hash": "0hR7mCHXgFH1fTaPzAyXSw=="
         }
       },
       "is_incremental": false,
@@ -677,11 +701,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration.ConfigureRadioStackRequest.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration.ConfigureRadioStackRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration.ConfigureRadioStackRequest.html",
-          "hash": "esPLff+lmkR9tFMbpwjZRA=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration.ConfigureRadioStackRequest.html",
+          "hash": "B0BvlBMJ0AFDTR5tcJTXvw=="
         }
       },
       "is_incremental": false,
@@ -689,11 +713,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration.NetworkStatusRequest.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration.NetworkStatusRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration.NetworkStatusRequest.html",
-          "hash": "OtulZpGl9094B+0Tk/p4Og=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration.NetworkStatusRequest.html",
+          "hash": "szK1JSlwEkzcewFBdnLkeQ=="
         }
       },
       "is_incremental": false,
@@ -701,11 +725,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Configuration.html",
-          "hash": "+MdTTK5r8a+NDcGiiAtz8A=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration.html",
+          "hash": "VPK7H16E9uO5TnicZ9rYqw=="
         }
       },
       "is_incremental": false,
@@ -713,11 +737,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Data.ReliableDataMessage.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data.ReliableDataMessageRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Data.ReliableDataMessage.html",
-          "hash": "8w8I3VtoWBxCuIhKAxVJ3A=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data.ReliableDataMessageRequest.html",
+          "hash": "GTDP6weJsTE0z6OZZ835hA=="
         }
       },
       "is_incremental": false,
@@ -725,11 +749,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Data.UnreliableDataMessage.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data.UnreliableDataMessageRequest.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Data.UnreliableDataMessage.html",
-          "hash": "ie9cKjmn0oPlVJ+edDErCQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data.UnreliableDataMessageRequest.html",
+          "hash": "EPaFciucvAhl6HbIfRcV+A=="
         }
       },
       "is_incremental": false,
@@ -737,11 +761,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Data.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.Data.html",
-          "hash": "/dkaLbfa3DU9jkM5nnpe4A=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data.html",
+          "hash": "tNlsQ1KTS3kVMYt/lQbG5w=="
         }
       },
       "is_incremental": false,
@@ -749,11 +773,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.LoRaWanTxMessage.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.LoRaWanTxMessage.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.LoRaWanTxMessage.html",
-          "hash": "bJI2WxODueT1OsiRKryVKQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.LoRaWanTxMessage.html",
+          "hash": "KUyK9Dsdzk8INpJIF1WpnA=="
         }
       },
       "is_incremental": false,
@@ -761,11 +785,11 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.yml",
+      "source_relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.yml",
       "output": {
         ".html": {
-          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRa.html",
-          "hash": "nmPCWEJyLC7+1SMBBpdKKQ=="
+          "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.html",
+          "hash": "Plc5Ly5WIUJS3SCYp2JLsg=="
         }
       },
       "is_incremental": false,
@@ -777,7 +801,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Messaging.Tx.TxHciMessage.html",
-          "hash": "bVBf4c/AEW+t3XICwYt+4A=="
+          "hash": "L7OS3l1xNkOK4e5ogXA+mg=="
         }
       },
       "is_incremental": false,
@@ -813,7 +837,19 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Utilities.PortFinder.html",
-          "hash": "+yXXUjVQZjsTcYPGk40J4A=="
+          "hash": "XhCdDTMKJmx9SvAS6C5KnA=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "ManagedReference",
+      "source_relative_path": "api/FosterBuster.IU880B.Utilities.RequestResponseMappings.yml",
+      "output": {
+        ".html": {
+          "relative_path": "api/FosterBuster.IU880B.Utilities.RequestResponseMappings.html",
+          "hash": "4NNA0/lJvNGxaiTKgSMI/w=="
         }
       },
       "is_incremental": false,
@@ -825,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/FosterBuster.IU880B.Utilities.html",
-          "hash": "vPkpuGhjRRKyYIyiHAao/g=="
+          "hash": "514YFBfoCV2990ux72s1ag=="
         }
       },
       "is_incremental": false,
@@ -861,7 +897,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "v2BPaIR0swT6bQS6duGXOA=="
+          "hash": "XtetdTgLM6vgcGe1iryLoA=="
         }
       },
       "is_incremental": false,
@@ -873,7 +909,7 @@
       "output": {
         ".html": {
           "relative_path": "articles/GETTING_STARTED.html",
-          "hash": "BTvBT313FUAByslcNfjsqQ=="
+          "hash": "DnCT937aFrY+wB/vBGs5SA=="
         }
       },
       "is_incremental": false,
@@ -925,24 +961,24 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ManagedReferenceDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 70,
+          "skipped_file_count": 70
+        },
+        "ConceptualDocumentProcessor": {
+          "can_incremental": true,
+          "incrementalPhase": "build",
+          "total_file_count": 5,
+          "skipped_file_count": 4
+        },
         "TocDocumentProcessor": {
           "can_incremental": false,
           "details": "Processor TocDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
           "incrementalPhase": "build",
           "total_file_count": 0,
           "skipped_file_count": 0
-        },
-        "ConceptualDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 5,
-          "skipped_file_count": 5
-        },
-        "ManagedReferenceDocumentProcessor": {
-          "can_incremental": true,
-          "incrementalPhase": "build",
-          "total_file_count": 67,
-          "skipped_file_count": 67
         }
       }
     },

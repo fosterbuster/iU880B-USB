@@ -130,7 +130,7 @@
   <h6><strong>Assembly</strong>: IU880B.dll</h6>
   <h5 id="FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage_syntax">Syntax</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public class DeviceTxMessage : TxHciMessage</code></pre>
+    <pre><code class="lang-csharp hljs">public abstract class DeviceTxMessage : TxHciMessage</code></pre>
   </div>
   <h3 id="constructors">Constructors
   </h3>
@@ -139,7 +139,7 @@
     <a href="https://github.com/fosterbuster/iU880B-USB/new/master/apiSpec/new?filename=FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage__ctor_FosterBuster_IU880B_Messaging_DeviceManagementMessageIdentifier_System_Collections_Generic_List_System_Byte__.md&amp;value=---%0Auid%3A%20FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.%23ctor(FosterBuster.IU880B.Messaging.DeviceManagementMessageIdentifier%2CSystem.Collections.Generic.List%7BSystem.Byte%7D)%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/fosterbuster/iU880B-USB/blob/documentation/IU880B/Messaging/Tx/Device/DeviceTxMessage.cs/#L22">View Source</a>
+    <a href="https://github.com/fosterbuster/iU880B-USB/blob/master/IU880B/Messaging/Tx/Device/DeviceTxMessage.cs/#L22">View Source</a>
   </span>
   <a id="FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage__ctor_" data-uid="FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.#ctor*"></a>
   <h4 id="FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage__ctor_FosterBuster_IU880B_Messaging_DeviceManagementMessageIdentifier_System_Collections_Generic_List_System_Byte__" data-uid="FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.#ctor(FosterBuster.IU880B.Messaging.DeviceManagementMessageIdentifier,System.Collections.Generic.List{System.Byte})">DeviceTxMessage(DeviceManagementMessageIdentifier, List&lt;Byte&gt;)</h4>
@@ -148,7 +148,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public DeviceTxMessage(DeviceManagementMessageIdentifier messageIdentifier, List&lt;byte&gt; payload)</code></pre>
+    <pre><code class="lang-csharp hljs">protected DeviceTxMessage(DeviceManagementMessageIdentifier messageIdentifier, List&lt;byte&gt; payload)</code></pre>
   </div>
   <h5 class="parameters">Parameters</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -181,7 +181,7 @@
     <a href="https://github.com/fosterbuster/iU880B-USB/new/master/apiSpec/new?filename=FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage_MessageIdentifier.md&amp;value=---%0Auid%3A%20FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.MessageIdentifier%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A">Improve this Doc</a>
   </span>
   <span class="small pull-right mobile-hide">
-    <a href="https://github.com/fosterbuster/iU880B-USB/blob/documentation/IU880B/Messaging/Tx/Device/DeviceTxMessage.cs/#L31">View Source</a>
+    <a href="https://github.com/fosterbuster/iU880B-USB/blob/master/IU880B/Messaging/Tx/Device/DeviceTxMessage.cs/#L31">View Source</a>
   </span>
   <a id="FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage_MessageIdentifier_" data-uid="FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.MessageIdentifier*"></a>
   <h4 id="FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage_MessageIdentifier" data-uid="FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage.MessageIdentifier">MessageIdentifier</h4>
@@ -190,7 +190,7 @@
   <div class="markdown level1 conceptual"></div>
   <h5 class="decalaration">Declaration</h5>
   <div class="codewrapper">
-    <pre><code class="lang-csharp hljs">public override byte MessageIdentifier { get; }</code></pre>
+    <pre><code class="lang-csharp hljs">public override sealed byte MessageIdentifier { get; }</code></pre>
   </div>
   <h5 class="propertyValue">Property Value</h5>
   <table class="table table-bordered table-striped table-condensed">
@@ -220,7 +220,7 @@
                     <a href="https://github.com/fosterbuster/iU880B-USB/new/master/apiSpec/new?filename=FosterBuster_IU880B_Messaging_Tx_Device_DeviceTxMessage.md&amp;value=---%0Auid%3A%20FosterBuster.IU880B.Messaging.Tx.Device.DeviceTxMessage%0Asummary%3A%20'*You%20can%20override%20summary%20for%20the%20API%20here%20using%20*MARKDOWN*%20syntax'%0A---%0A%0A*Please%20type%20below%20more%20information%20about%20this%20API%3A*%0A%0A" class="contribution-link">Improve this Doc</a>
                   </li>
                   <li>
-                    <a href="https://github.com/fosterbuster/iU880B-USB/blob/documentation/IU880B/Messaging/Tx/Device/DeviceTxMessage.cs/#L13" class="contribution-link">View Source</a>
+                    <a href="https://github.com/fosterbuster/iU880B-USB/blob/master/IU880B/Messaging/Tx/Device/DeviceTxMessage.cs/#L13" class="contribution-link">View Source</a>
                   </li>
                 </ul>
               </div>

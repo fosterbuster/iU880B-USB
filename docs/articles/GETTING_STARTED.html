@@ -137,25 +137,25 @@ private async Task Handle(object obj)
 <p><strong>Example usage</strong></p>
 <pre><code>var payload = new List&lt;byte&gt;() { 0xFF });
 
-await modem.TransmitMessage(new UnreliableDataMessage(5, payload);
+await modem.TransmitMessage(new UnreliableDataMessageRequest(5, payload);
 </code></pre>
 <p>Usage seems quite self-explanitory. Any any type deriving from <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.TxHciMessage.html">TxHciMessage</a> can be passed, and any <em>concrete</em> type should be passed.</p>
 <p><strong>The IU880BModem class will handle any and all marshalling, checksums and so forth.</strong></p>
 <h2 id="activation">Activation</h2>
-<p><a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.html">Documentation for the TX Activation Namespace</a></p>
-<p><a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.Activation.html">Documentation for the RX Activation Namespace</a></p>
+<p><a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.html">Documentation for the TX Activation Namespace</a></p>
+<p><a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.html">Documentation for the RX Activation Namespace</a></p>
 <p>Activation can be accomplished in the following two ways:</p>
 <h3 id="otaa">OTAA</h3>
 <ol>
-<li><p>First configure the OTAA-parameters by sending a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.SetJoinParametersRequest.html">SetJoinParametersRequest</a>.</p>
+<li><p>First configure the OTAA-parameters by sending a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.SetJoinParametersRequest.html">SetJoinParametersRequest</a>.</p>
 </li>
-<li><p>If you get a successful <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.Activation.SetJoinParametersResponse.html">response</a>, go ahead and send a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.OverTheAirActivationRequest.html">OverTheAirActivationRequest</a>.</p>
+<li><p>If you get a successful <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.SetJoinParametersResponse.html">response</a>, go ahead and send a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.OverTheAirActivationRequest.html">OverTheAirActivationRequest</a>.</p>
 </li>
-<li><p>When you receive a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.Activation.JoinNetworkIndication.html">JoinNetworkIndication</a> the device has been activated.</p>
+<li><p>When you receive a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation.JoinNetworkIndication.html">JoinNetworkIndication</a> the device has been activated.</p>
 </li>
 </ol>
 <h3 id="abp">ABP</h3>
-<p>For ABP just send a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRa.Activation.ActivationByPersonalisationRequest.html">ActivationByPersonalisationRequest</a></p>
+<p>For ABP just send a <a class="xref" href="../api/FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation.ActivationByPersonalisationRequest.html">ActivationByPersonalisationRequest</a></p>
 <h2 id="other">Other</h2>
 <p>It might be of value to know that the project refers to a collection of extension methods, that might come in handy when working with bytes and iMST-products. These are already referenced by the library.</p>
 <p>Their source are available <a href="https://github.com/fosterbuster/ExtensionMethods/tree/master/ExtensionMethods">here</a></p>
