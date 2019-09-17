@@ -16,7 +16,7 @@ namespace FosterBuster.IU880B.Utilities
     /// <summary>
     /// Finds connected serialdevices automagically on windows machines.
     /// </summary>
-    public class PortFinder
+    public sealed class PortFinder
     {
         private readonly string _deviceName;
         private readonly string _mgmtObjQuery = "Name";

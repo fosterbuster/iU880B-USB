@@ -8,7 +8,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
     /// <summary>
     /// This message can be used to identify the local connected device. As a result the device sends a response message which contains a Device Information Field.
     /// </summary>
-    public class DeviceInformationRequest : DeviceTxMessage
+    public sealed class DeviceInformationRequest : DeviceTxMessage
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="DeviceInformationRequest"/> class.

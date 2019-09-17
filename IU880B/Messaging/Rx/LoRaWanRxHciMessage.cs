@@ -26,6 +26,6 @@ namespace FosterBuster.IU880B.Messaging.Rx
         }
 
         /// <inheritdoc/>
-        public override byte MessageIdentifier => (byte)_identifier;
+        public sealed override byte MessageIdentifier => (byte)_identifier;
     }
 }

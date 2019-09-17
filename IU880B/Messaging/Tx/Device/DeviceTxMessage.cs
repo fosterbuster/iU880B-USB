@@ -10,7 +10,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
     /// <summary>
     /// Message to be transmitted to the device management SAP.
     /// </summary>
-    public class DeviceTxMessage : TxHciMessage
+    public abstract class DeviceTxMessage : TxHciMessage
     {
         private readonly DeviceManagementMessageIdentifier _messageIdentifier;
 
@@ -19,7 +19,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
         /// </summary>
         /// <param name="messageIdentifier">Message type identifier.</param>
         /// <param name="payload">the payload.</param>
-        public DeviceTxMessage(DeviceManagementMessageIdentifier messageIdentifier, List<byte> payload)
+        protected DeviceTxMessage(DeviceManagementMessageIdentifier messageIdentifier, List<byte> payload)
             : base(EndpointIdentifier.DeviceManager, payload)
         {
             _messageIdentifier = messageIdentifier;
@@ -28,6 +28,6 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
         /// <summary>
         /// Gets the message identifier.
         /// </summary>
-        public override byte MessageIdentifier => (byte)_messageIdentifier;
+        public sealed override byte MessageIdentifier => (byte)_messageIdentifier;
     }
 }
