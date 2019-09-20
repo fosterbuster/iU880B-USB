@@ -16,7 +16,7 @@ Documentation available [here](https://fosterbuster.github.io/iU880B-USB/)
 
 1. Check out the [repo](https://github.com/fosterbuster/iU880B-USB.git) or reference from [nuget](https://www.nuget.org/packages/FosterBuster.IU880B) by typing in your _Package Manager Console_ 
 
-       Install-Package FosterBuster.IU880B -Version 1.0.0.1
+       Install-Package FosterBuster.IU880B -Version 1.0.0.2
 
 
 
