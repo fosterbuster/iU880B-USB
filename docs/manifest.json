@@ -41,42 +41,6 @@
     },
     {
       "type": "ManagedReference",
-      "source_relative_path": "api/Demo.Bug.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Demo.Bug.html",
-          "hash": "JumBoeQQrclJdOpBe2UC9w=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Demo.Dongle.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Demo.Dongle.html",
-          "hash": "3ggbcxOJz3mf5OoMQVwSOg=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
-      "source_relative_path": "api/Demo.yml",
-      "output": {
-        ".html": {
-          "relative_path": "api/Demo.html",
-          "hash": "TIUpJ6zlMddK4hh9GwdFVQ=="
-        }
-      },
-      "is_incremental": false,
-      "version": ""
-    },
-    {
-      "type": "ManagedReference",
       "source_relative_path": "api/FosterBuster.IU880B.DependencyInjection.IU880BOptions.yml",
       "output": {
         ".html": {
@@ -897,7 +861,7 @@
       "output": {
         ".html": {
           "relative_path": "api/toc.html",
-          "hash": "XtetdTgLM6vgcGe1iryLoA=="
+          "hash": "acnMWOE+0/c334rKdEFpLw=="
         }
       },
       "is_incremental": false,
@@ -916,12 +880,57 @@
       "version": ""
     },
     {
+      "type": "Conceptual",
+      "source_relative_path": "articles/TIPS_FOR_DESIGNING_BINARY_PROTOCOLS_FOR_LORAWAN.md",
+      "output": {
+        ".html": {
+          "relative_path": "articles/TIPS_FOR_DESIGNING_BINARY_PROTOCOLS_FOR_LORAWAN.html",
+          "hash": "F5t1rw+jhg1SfCw4ZvYLQQ=="
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "articles/lorawan_protocol_specifications/adeunis_fieldtester.pdf",
+      "output": {
+        "resource": {
+          "relative_path": "articles/lorawan_protocol_specifications/adeunis_fieldtester.pdf"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "articles/lorawan_protocol_specifications/secretagentman.png",
+      "output": {
+        "resource": {
+          "relative_path": "articles/lorawan_protocol_specifications/secretagentman.png"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
+      "type": "Resource",
+      "source_relative_path": "articles/lorawan_protocol_specifications/xignal_rattrap.pdf",
+      "output": {
+        "resource": {
+          "relative_path": "articles/lorawan_protocol_specifications/xignal_rattrap.pdf"
+        }
+      },
+      "is_incremental": false,
+      "version": ""
+    },
+    {
       "type": "Toc",
       "source_relative_path": "articles/toc.yml",
       "output": {
         ".html": {
           "relative_path": "articles/toc.html",
-          "hash": "g6Wt7tOZgV2CKIoIRqNfwg=="
+          "hash": "TtloAcZn30yvn0iE+AB6Dw=="
         }
       },
       "is_incremental": false,
@@ -961,17 +970,24 @@
         "skipped_file_count": 0
       },
       "processors": {
+        "ResourceDocumentProcessor": {
+          "can_incremental": false,
+          "details": "Processor ResourceDocumentProcessor cannot support incremental build because the processor doesn't implement ISupportIncrementalDocumentProcessor interface.",
+          "incrementalPhase": "build",
+          "total_file_count": 0,
+          "skipped_file_count": 0
+        },
         "ManagedReferenceDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 70,
-          "skipped_file_count": 70
+          "total_file_count": 67,
+          "skipped_file_count": 67
         },
         "ConceptualDocumentProcessor": {
           "can_incremental": true,
           "incrementalPhase": "build",
-          "total_file_count": 5,
-          "skipped_file_count": 4
+          "total_file_count": 6,
+          "skipped_file_count": 5
         },
         "TocDocumentProcessor": {
           "can_incremental": false,

@@ -1,2 +1,4 @@
 - name: Getting Started
   href: GETTING_STARTED.md
+- name: Tips for designing binary protocols for LoRaWAN
+  href: TIPS_FOR_DESIGNING_BINARY_PROTOCOLS_FOR_LORAWAN.md

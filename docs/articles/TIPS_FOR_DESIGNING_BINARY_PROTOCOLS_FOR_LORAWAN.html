@@ -1,0 +1,218 @@
+﻿<!DOCTYPE html>
+<!--[if IE]><![endif]-->
+<html>
+  
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Tips for designing binary protocols for LoRaWAN | iU880B-USB </title>
+    <meta name="viewport" content="width=device-width">
+    <meta name="title" content="Tips for designing binary protocols for LoRaWAN | iU880B-USB ">
+    <meta name="generator" content="docfx 2.45.1.0">
+    
+    <link rel="shortcut icon" href="../favicon.ico">
+    <link rel="stylesheet" href="../styles/docfx.vendor.css">
+    <link rel="stylesheet" href="../styles/docfx.css">
+    <link rel="stylesheet" href="../styles/main.css">
+    <meta property="docfx:navrel" content="../toc.html">
+    <meta property="docfx:tocrel" content="toc.html">
+    
+    <meta property="docfx:rel" content="../">
+    
+  </head>
+  <body data-spy="scroll" data-target="#affix" data-offset="120">
+    <div id="wrapper">
+      <header>
+        
+        <nav id="autocollapse" class="navbar navbar-inverse ng-scope" role="navigation">
+          <div class="container">
+            <div class="navbar-header">
+              <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              
+              <a class="navbar-brand" href="../index.html">
+                <img id="logo" class="svg" src="../logo.svg" alt="">
+              </a>
+            </div>
+            <div class="collapse navbar-collapse" id="navbar">
+              <form class="navbar-form navbar-right" role="search" id="search">
+                <div class="form-group">
+                  <input type="text" class="form-control" id="search-query" placeholder="Search" autocomplete="off">
+                </div>
+              </form>
+            </div>
+          </div>
+        </nav>
+        
+        <div class="subnav navbar navbar-default">
+          <div class="container hide-when-search" id="breadcrumb">
+            <ul class="breadcrumb">
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </header>
+      <div class="container body-content">
+        
+        <div id="search-results">
+          <div class="search-list"></div>
+          <div class="sr-items">
+            <p><i class="glyphicon glyphicon-refresh index-loading"></i></p>
+          </div>
+          <ul id="pagination"></ul>
+        </div>
+      </div>
+      <div role="main" class="container body-content hide-when-search">
+        
+        <div class="sidenav hide-when-search">
+          <a class="btn toc-toggle collapse" data-toggle="collapse" href="#sidetoggle" aria-expanded="false" aria-controls="sidetoggle">Show / Hide Table of Contents</a>
+          <div class="sidetoggle collapse" id="sidetoggle">
+            <div id="sidetoc"></div>
+          </div>
+        </div>
+        <div class="article row grid-right">
+          <div class="col-md-10">
+            <article class="content wrap" id="_content" data-uid="">
+<h1 id="tips-for-designing-binary-protocols-for-lorawan">Tips for designing binary protocols for LoRaWAN</h1>
+
+<h2 id="goals">Goals</h2>
+<ul>
+<li>Keep the payload short.
+<ul>
+<li>The longer your payload, the less likely it is to be received.</li>
+<li>The longer your payload, the more punishment of the Duty Cycle.</li>
+</ul>
+</li>
+<li>Design for extensibility.
+<ul>
+<li>You never know how your protocol might evolve, so ensure that you are able to extend it rather painlessly.</li>
+</ul>
+</li>
+<li>Design for a single usecase.
+<ul>
+<li>A device that can do everything, usually ends up doing nothing (same goes for all development projects tbh).</li>
+</ul>
+</li>
+</ul>
+<h2 id="payloads-by-irl-examples">Payloads by IRL examples.</h2>
+<p><em>It might be beneficial, to see how other people design their protocols, both good and bad.</em></p>
+<h3 id="xignal-mouse-trap">Xignal Mouse Trap</h3>
+<p><a href="lorawan_protocol_specifications/xignal_rattrap.pdf">Link to protocol specification</a></p>
+<h4 id="bad">Bad</h4>
+<ul>
+<li>Contains a message identifier, used for identifying the packet from other LoRaWAN packets. This is redundant information, since it can be derived from the devices ID, which is always present in a LoRaWAN header.</li>
+<li>Contains a 6-bit device identifier (wtf? why not just use the full byte now that youre at it). Again, the device can already be identified by its device id.</li>
+<li>Not so extensible</li>
+</ul>
+<h4 id="good">Good</h4>
+<ul>
+<li>I am so disappointed, that i can't think of any.
+<ul>
+<li>Maybe that they have reserved values...</li>
+</ul>
+</li>
+</ul>
+<h4 id="notes">Notes</h4>
+<p>The protocol defines a size of 6 fixed bytes, out of which 2 can easily be stripped away.</p>
+<p>For some reason, they decided to throw in a thermometer in it. I guess it was built-in the chip measuring acceleration. I guess it serves as an extra selling point.</p>
+<p>It might be worth noticing, that for the battery voltage, you need to multiply it with 10^-2. This is actually a smart trick, I might elaborate on later.</p>
+<h3 id="garbage-meter">Garbage Meter</h3>
+<p><img src="lorawan_protocol_specifications/secretagentman.png" alt="">
+<em>Unfortunately the documentation for the payload is supposedly confidential, so Ill refrain from mentioning it by name.</em></p>
+<h4 id="bad-1">Bad</h4>
+<ul>
+<li>The payload is a fixed 4 bytes, where for the two first bytes each nibble is used to identify a boolean value (wtf?).</li>
+</ul>
+<h4 id="good-1">Good</h4>
+<ul>
+<li>Excellent example of what not to do, and letting one talk about optimization options.</li>
+</ul>
+<h4 id="notes-1">Notes</h4>
+<p>First of all, it should be evident that the two first bytes could be shaved down to 4 bits (one nibble). Second, the last two bytes are encoded as BCD (binary coded decimal). If the device has a range of 0-2000mm, this can be expressed (if not using BCD) as 1 byte and one nibble.</p>
+<p>All in all, you could actually store the entirety of the information in 2 bytes. First 1 byte and nibble for the distance, and a nibble for the booleans.</p>
+<p>ie the example would look like this</p>
+<p>Meaning:
+[Distance][Booleans]</p>
+<p>HEX:
+[40A][0]</p>
+<p>Binary:
+[0100 0000 1010][0000]</p>
+<h3 id="adeunis-field-test-device">Adeunis Field Test Device:</h3>
+<p><a href="lorawan_protocol_specifications/adeunis_fieldtester.pdf">Link to specification</a></p>
+<p>In general, I think this is excellently designed, and documented.</p>
+<h2 id="tips-and-tricks-for-your-payload">Tips and tricks for your payload.</h2>
+<h3 id="variable-ints-vlq-zigzag-ints">Variable ints (VLQ), zigzag ints.</h3>
+<p><a href="https://developers.google.com/protocol-buffers/docs/encoding">Have a look at how Google's Protobuf handles Varints and signed numbers</a>. This enables you to express numbers using only the exact amount of space you need (except for a signed byte, which will be two bytes if using a zigzagged variable int). A decent .NET library is available on github for encoding this is avaiable <a href="https://github.com/topas/VarintBitConverter">here</a></p>
+<h2 id="using-a-multiplication-factor">Using a multiplication factor.</h2>
+<p>If working with decimal numbers, having some bits indicating a multiplication factor, might be a good idea, since it allows you to shrink and grow numbers using less space. Ie imagine this (shamelessly insipired by the mbus protocol)</p>
+<p>1 byte details the data information. Ie the first 4 bits denotes the data type (BCD, varint, zigzagged varint, booleans, fixed sized, whatever..), the rest is the data-part</p>
+<p>The last 4 bits denotes the multiplication factor. So we imagine that we define our protocol as last 4 bits (0-15), which we now denote nnnn.</p>
+<p>value = datapart * 10^(7-nnnn)</p>
+<p>value = 1337 * 10^(7-nnnn)</p>
+<p>for nnnn = x</p>
+<ul>
+<li>0 = 13370000000</li>
+<li>1 = 1337000000</li>
+<li>2 = 133700000</li>
+<li>3 = 13370000</li>
+<li>4 = 1337000</li>
+<li>5 = 133700</li>
+<li>6 = 13370</li>
+<li>7 = 1337</li>
+<li>8 = 133.7</li>
+<li>9 = 13.37</li>
+<li>10 = 1.337</li>
+<li>11 = 0.1337</li>
+<li>12 = 0.01337</li>
+<li>13 = 0.001337</li>
+<li>14 = 0.0001337</li>
+<li>15 = 0.00001337</li>
+</ul>
+<p>As seen, this gives quite a lot of flexibility. Of course, you could also do this for other operations.. And you don't need to go to extremes and use a full 4 bits.</p>
+<h2 id="use-bits-as-boolean-values">Use bits as boolean values.</h2>
+<p>If anything can be boiled down to a yes or no, true or false, etc - Use the bits! Don't waste a byte, or whatever else you can think of.</p>
+<h2 id="denote-your-protocol-with-extension-bits">Denote your protocol with extension bits.</h2>
+<p>If you are unsure, if the protocol might be extended one day - Design for it. This is usually done by reserving one bit in each byte explaining something about something (data types, what measure your measurement is actually of (ie temperature, water flow, cars seen in a day, etc..))</p>
+</article>
+          </div>
+          
+          <div class="hidden-sm col-md-2" role="complementary">
+            <div class="sideaffix">
+              <div class="contribution">
+                <ul class="nav">
+                  <li>
+                    <a href="https://github.com/fosterbuster/iU880B-USB/blob/master/articles/TIPS_FOR_DESIGNING_BINARY_PROTOCOLS_FOR_LORAWAN.md/#L1" class="contribution-link">Improve this Doc</a>
+                  </li>
+                </ul>
+              </div>
+              <nav class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" id="affix">
+              <!-- <p><a class="back-to-top" href="#top">Back to top</a><p> -->
+              </nav>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <footer>
+        <div class="grad-bottom"></div>
+        <div class="footer">
+          <div class="container">
+            <span class="pull-right">
+              <a href="#top">Back to top</a>
+            </span>
+            
+            <span>Generated by <strong>DocFX</strong></span>
+          </div>
+        </div>
+      </footer>
+    </div>
+    
+    <script type="text/javascript" src="../styles/docfx.vendor.js"></script>
+    <script type="text/javascript" src="../styles/docfx.js"></script>
+    <script type="text/javascript" src="../styles/main.js"></script>
+  </body>
+</html>
