@@ -34,7 +34,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data
         /// <summary>
         /// Gets the Application Layer Payload.
         /// </summary>
-        public byte[] ApplicationPayload => IsAcknowledgement ? null : GetApplicationPayload();
+        public byte[]? ApplicationPayload => IsAcknowledgement ? null : GetApplicationPayload();
 
         /// <summary>
         /// Gets a value indicating whether or not the message is an acknowledgement sent from the server.
@@ -72,8 +72,8 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data
         public override string ToString()
         {
             return $"ACK: {IsAcknowledgement}" +
-                (IsExtended ? $" Channel Index: {ChannelIndex.Value}, Data Rate: {DataRate.Value.ToFormattedString()}, RSSI: {RelativeSignalStrengthIndicator.Value}, SNR: {SignalToNoiseRatio.Value}, Rx Slot Value: {RxSlot.Value}" : string.Empty) +
-                (!IsAcknowledgement ? $" - Application Layer Payload: {ApplicationPayload.ToHexString()}, Port: {Port.Value}" : string.Empty);
+                (IsExtended ? $" Channel Index: {ChannelIndex!.Value}, Data Rate: {DataRate!.Value.ToFormattedString()}, RSSI: {RelativeSignalStrengthIndicator!.Value}, SNR: {SignalToNoiseRatio!.Value}, Rx Slot Value: {RxSlot!.Value}" : string.Empty) +
+                (!IsAcknowledgement ? $" - Application Layer Payload: {ApplicationPayload!.ToHexString()}, Port: {Port!.Value}" : string.Empty);
         }
 
         private byte[] GetApplicationPayload()

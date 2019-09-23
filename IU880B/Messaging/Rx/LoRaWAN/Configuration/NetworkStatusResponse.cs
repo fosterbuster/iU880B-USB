@@ -46,7 +46,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration
         /// <summary>
         /// Gets the device address.
         /// </summary>
-        public byte[] DeviceAddress => ExtendedFormat ? GetDeviceAddress() : null;
+        public byte[]? DeviceAddress => ExtendedFormat ? GetDeviceAddress() : null;
 
         /// <summary>
         /// Gets the current Data rate (spreading factor) of the device.
@@ -68,7 +68,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"Network Status Response. Status: {Status.ToString()}, Network Status: {NetworkStatus.ToFormattedString()}" + (ExtendedFormat ? $"Device Address {DeviceAddress.ToHexString()}, Data rate: {DataRate.Value.ToFormattedString()}, Power Level (EIRP): {PowerLevel.Value} dBm, Maximum payload size {MaximumPayloadSize.Value}." : ".");
+            return $"Network Status Response. Status: {Status.ToString()}, Network Status: {NetworkStatus.ToFormattedString()}" + (ExtendedFormat ? $"Device Address {DeviceAddress!.ToHexString()}, Data rate: {DataRate!.Value.ToFormattedString()}, Power Level (EIRP): {PowerLevel!.Value} dBm, Maximum payload size {MaximumPayloadSize!.Value}." : string.Empty);
         }
 
         private byte[] GetDeviceAddress()

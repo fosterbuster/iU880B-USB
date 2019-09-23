@@ -18,7 +18,7 @@ namespace FosterBuster.IU880B.Messaging.Tx
         /// </summary>
         /// <param name="identifier">Identifier for destination endpoint.</param>
         /// <param name="payload">payload to be sent.</param>
-        protected TxHciMessage(EndpointIdentifier identifier, List<byte> payload)
+        protected TxHciMessage(EndpointIdentifier identifier, List<byte>? payload)
         {
             EndpointIdentifier = identifier;
             Payload = payload;
@@ -32,7 +32,7 @@ namespace FosterBuster.IU880B.Messaging.Tx
         /// <summary>
         /// Gets the payload of this message.
         /// </summary>
-        public List<byte> Payload { get; private set; }
+        public List<byte>? Payload { get; private set; }
 
         /// <summary>
         /// Gets the message identifier.

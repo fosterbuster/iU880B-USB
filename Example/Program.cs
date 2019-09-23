@@ -28,7 +28,7 @@ namespace Example
             // Notice that this configuration spawns up the PortFinder, which is a utility class thats a bit helpful if yoir USB-stick keeps deciding it wants to be registered as a different port. Only works on windows (and you should use .net core 3 preview if running linux).
             ServiceProvider serviceCollection = new ServiceCollection().AddIU880BModem(x =>
             {
-                x.Name = "USB";
+                //x.Name = "USB";
                 x.UsePortFinder = true;
             })
             .AddSingleton<ILoggerFactory, LoggerFactory>()

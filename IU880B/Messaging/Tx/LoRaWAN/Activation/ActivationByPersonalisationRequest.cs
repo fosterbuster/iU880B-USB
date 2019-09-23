@@ -22,9 +22,9 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation
         public ActivationByPersonalisationRequest(string deviceAddress, string networkSessionKey, string applicationSessionKey)
             : base(LoRaWanMessageIdentifier.ActivateDeviceRequest, new List<byte>())
         {
-            Payload.AddRange(deviceAddress.HexStringToBytes());
-            Payload.AddRange(networkSessionKey.HexStringToBytes());
-            Payload.AddRange(applicationSessionKey.HexStringToBytes());
+            Payload!.AddRange(deviceAddress.HexStringToBytes());
+            Payload!.AddRange(networkSessionKey.HexStringToBytes());
+            Payload!.AddRange(applicationSessionKey.HexStringToBytes());
         }
 
         /// <summary>
@@ -36,9 +36,9 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation
         public ActivationByPersonalisationRequest(IList<byte> deviceAddress, IList<byte> networkSessionKey, IList<byte> applicationSessionKey)
            : base(LoRaWanMessageIdentifier.ActivateDeviceRequest, new List<byte>())
         {
-            Payload.AddRange(deviceAddress);
-            Payload.AddRange(networkSessionKey);
-            Payload.AddRange(applicationSessionKey);
+            Payload!.AddRange(deviceAddress);
+            Payload!.AddRange(networkSessionKey);
+            Payload!.AddRange(applicationSessionKey);
         }
     }
 }

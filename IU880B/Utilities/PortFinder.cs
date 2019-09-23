@@ -30,6 +30,13 @@ namespace FosterBuster.IU880B.Utilities
         /// <param name="loggerFactory">logger factory.</param>
         public PortFinder(IOptions<IU880BOptions> options, ILoggerFactory loggerFactory)
         {
+            if (options.Value.Name is null)
+            {
+#pragma warning disable S3928 // Parameter names used into ArgumentException constructors should match an existing one
+                throw new ArgumentNullException(nameof(options.Value.Name), "Name cannot be null");
+#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one
+            }
+
             _deviceName = options.Value.Name;
             _logger = loggerFactory.CreateLogger<PortFinder>();
         }
@@ -38,13 +45,13 @@ namespace FosterBuster.IU880B.Utilities
         /// Gets the first port number mathcing the device name.
         /// </summary>
         /// <returns>A string representation of the devices COM-port.</returns>
-        public string ConnectedPortName => FindConnectedPort();
+        public string? ConnectedPortName => FindConnectedPort();
 
         /// <summary>
         /// Gets a serial connection to the first port number matching the device name.
         /// </summary>
         /// <returns>the connected <see cref="SerialPort"/>.</returns>
-        public SerialPort ConnectedSerialPort => GetConnectedSerialPort();
+        public SerialPort? ConnectedSerialPort => GetConnectedSerialPort();
 
         /// <summary>
         /// Checks if any device is available.
@@ -52,26 +59,32 @@ namespace FosterBuster.IU880B.Utilities
         /// <returns>A boolean indicating if any device is available.</returns>
         public bool DeviceAvailable() => !string.IsNullOrEmpty(FindConnectedPort());
 
-        private string FindConnectedPort()
+        private string? FindConnectedPort()
         {
             _logger.LogTrace("Starting search for virtual COM device with name: {name}", _deviceName);
-            string foundPort = null;
+            string? foundPort = null;
             try
             {
-                using (var search = new ManagementObjectSearcher(
+                using var search = new ManagementObjectSearcher(
                     "root\\CIMV2",
-                    "SELECT * FROM Win32_PnPEntity WHERE ClassGuid=\"{4d36e978-e325-11ce-bfc1-08002be10318}\""))
+                    "SELECT * FROM Win32_PnPEntity WHERE ClassGuid=\"{4d36e978-e325-11ce-bfc1-08002be10318}\"");
+
+                foreach (ManagementBaseObject mgmtObj in search.Get())
                 {
-                    foreach (ManagementBaseObject mgmtObj in search.Get())
+                    ManagementObject? queryObj = mgmtObj as ManagementObject;
+
+                    var name = queryObj?[_mgmtObjQuery] as string;
+
+                    if (name is null)
                     {
-                        var queryObj = mgmtObj as ManagementObject;
-                        var name = queryObj[_mgmtObjQuery] as string;
-                        if (name.Contains(_deviceName))
-                        {
-                            var port = Regex.Match(name, _portRegex).Groups[1].Value;
-                            foundPort = port;
-                            break;
-                        }
+                        return null;
+                    }
+
+                    if (name.Contains(_deviceName))
+                    {
+                        var port = Regex.Match(name, _portRegex).Groups[1].Value;
+                        foundPort = port;
+                        break;
                     }
                 }
             }
@@ -83,7 +96,7 @@ namespace FosterBuster.IU880B.Utilities
             return foundPort;
         }
 
-        private SerialPort GetConnectedSerialPort()
+        private SerialPort? GetConnectedSerialPort()
         {
             var port = FindConnectedPort();
             return port != null ? new SerialPort(FindConnectedPort()) : null;

@@ -60,7 +60,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"Join Network Packet Transmission Indication. Packet sent: {RadioPacketSent}" + (ExtendedFormat ? $" Channel Index: {ChannelIndex.Value}, DataRate: {DataRate.Value.ToFormattedString()}, Transmitted radio packets: {TransmittedRadioPackets.Value}, Transmit Power Level: {TransmitPowerLevel} dBm, Air time: {MessageAirTimeMillis} ms." : ".");
+            return $"Join Network Packet Transmission Indication. Packet sent: {RadioPacketSent}" + (ExtendedFormat ? $" Channel Index: {ChannelIndex!.Value}, DataRate: {DataRate!.Value.ToFormattedString()}, Transmitted radio packets: {TransmittedRadioPackets!.Value}, Transmit Power Level: {TransmitPowerLevel!} dBm, Air time: {MessageAirTimeMillis!} ms." : string.Empty);
         }
     }
 }

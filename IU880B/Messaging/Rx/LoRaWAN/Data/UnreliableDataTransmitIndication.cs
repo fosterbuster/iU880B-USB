@@ -25,7 +25,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"Unreliable Data Transmission Indication. Packet sent: {RadioPacketSent}, " + (ExtendedFormat ? $", Channel Index: {ChannelIndex.Value}, DataRate: {DataRate.Value.ToFormattedString()}, Transmitted radio packets: {TransmittedRadioPackets.Value}, Transmit Power Level: {TransmitPowerLevel} dBm, Air time: {MessageAirTimeMillis} ms." : string.Empty);
+            return $"Unreliable Data Transmission Indication. Packet sent: {RadioPacketSent}, " + (ExtendedFormat ? $", Channel Index: {ChannelIndex!.Value}, DataRate: {DataRate!.Value.ToFormattedString()}, Transmitted radio packets: {TransmittedRadioPackets!.Value}, Transmit Power Level: {TransmitPowerLevel!} dBm, Air time: {MessageAirTimeMillis!} ms." : string.Empty);
         }
     }
 }

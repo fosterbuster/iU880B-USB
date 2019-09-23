@@ -5,8 +5,10 @@
 
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.IO.Ports;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Threading.Tasks;
 using FosterBuster.Extensions;
 using FosterBuster.IU880B.DependencyInjection;
@@ -39,7 +41,7 @@ namespace FosterBuster.IU880B
         private readonly SerialPort _serialConnection;
         private readonly SlipReader _slipReader;
         private readonly ILogger<IU880BModem> _logger;
-        private Func<RxHciMessage, Task> _onData;
+        private Func<RxHciMessage, Task>? _onData;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="IU880BModem"/> class.
@@ -54,9 +56,32 @@ namespace FosterBuster.IU880B
             IU880BOptions opts = options.Value;
             var portName = string.Empty;
 
+            if (opts.Name is null)
+            {
+#pragma warning disable S3928 // I think its a bug, not handling nameof
+                throw new ArgumentNullException(nameof(opts.Name), $"{nameof(opts.Name)} in {typeof(IU880BOptions).Name} must not be null!");
+#pragma warning restore S3928 // Parameter names used into ArgumentException constructors should match an existing one
+            }
+
             if (opts.UsePortFinder)
             {
-                portName = portfinder.ConnectedPortName;
+                if (RuntimeInformation.IsOSPlatform(OSPlatform.Linux) || RuntimeInformation.IsOSPlatform(OSPlatform.OSX))
+                {
+                    _logger.LogWarning($"{nameof(PortFinder)} is not supported on this operating system. Defaulting to using {opts.Name} instead.");
+                    portName = opts.Name;
+                }
+                else
+                {
+                    var foundPortName = portfinder.ConnectedPortName;
+
+                    if (foundPortName is null)
+                    {
+                        _logger.LogError("Could not find an connected ports.");
+                        throw new IOException($"{typeof(PortFinder).Name} could not find any serial device matching '{opts.Name}'");
+                    }
+
+                    portName = foundPortName;
+                }
             }
             else
             {
@@ -103,7 +128,7 @@ namespace FosterBuster.IU880B
 
         private void OnSerialDataAvailable(object sender, SerialDataReceivedEventArgs e)
         {
-           _slipReader.Read(_serialConnection.BaseStream).Wait();
+            _slipReader.Read(_serialConnection.BaseStream).Wait();
         }
 
         private async Task OnSlipFrameReceived(byte[] data)
@@ -139,6 +164,12 @@ namespace FosterBuster.IU880B
             }
 
             _logger.LogDebug("Marshalling successful, received: {message}", message.ToString());
+
+            if (_onData is null)
+            {
+                _logger.LogWarning("No receivers have been added. Consider calling SetReceiver. Discarding message.");
+                return;
+            }
 
             await _onData(message).ConfigureAwait(false);
         }

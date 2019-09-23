@@ -35,7 +35,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"Reliable Data Transmission Indication. Packet sent: {RadioPacketSent}, Maximum number of retransmissions reached: {MaximumNumberOfRetransmissionsReached}, Maximum payload size exceeded for current data rate: {MaximumPayloadSizeExceededForCurrentDataRate}" + (ExtendedFormat ? $" Channel Index: {ChannelIndex.Value}, DataRate: {DataRate.Value.ToFormattedString()}, Transmitted radio packets: {TransmittedRadioPackets.Value}, Transmit Power Level: {TransmitPowerLevel} dBm, Air time: {MessageAirTimeMillis} ms." : string.Empty);
+            return $"Reliable Data Transmission Indication. Packet sent: {RadioPacketSent}, Maximum number of retransmissions reached: {MaximumNumberOfRetransmissionsReached}, Maximum payload size exceeded for current data rate: {MaximumPayloadSizeExceededForCurrentDataRate}" + (ExtendedFormat ? $" Channel Index: {ChannelIndex!.Value}, DataRate: {DataRate!.Value.ToFormattedString()}, Transmitted radio packets: {TransmittedRadioPackets!.Value}, Transmit Power Level: {TransmitPowerLevel!} dBm, Air time: {MessageAirTimeMillis!} ms." : string.Empty);
         }
     }
 }

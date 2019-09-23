@@ -31,7 +31,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation
         /// <summary>
         /// Gets the device address.
         /// </summary>
-        public byte[] DeviceAddress => ExtendedFormat ? GetNewDeviceAddress() : null;
+        public byte[]? DeviceAddress => ExtendedFormat ? GetNewDeviceAddress() : null;
 
         /// <summary>
         /// Gets the channel index the transmission was sent on.
@@ -63,7 +63,7 @@ namespace FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation
         /// <inheritdoc/>
         public override string ToString()
         {
-            return $"Join Network Indication. Device Activbated: {DeviceActivated}" + (ExtendedFormat ? $"Channel Index: {ChannelIndex.Value}, DataRate: {DataRate.Value.ToFormattedString()}, New Device Address: {DeviceAddress.ToHexString()}, RSSI: {RelativeSignalStrenghtIndicator.Value} dBm, SnR: {SignalToNoiseRatio.Value} dB, Rx Slot: {RxSlot.Value}" : ".");
+            return $"Join Network Indication. Device Activated: {DeviceActivated}" + (ExtendedFormat ? $"Channel Index: {ChannelIndex!.Value}, DataRate: {DataRate!.Value.ToFormattedString()}, New Device Address: {DeviceAddress!.ToHexString()}, RSSI: {RelativeSignalStrenghtIndicator!.Value} dBm, SnR: {SignalToNoiseRatio!.Value} dB, Rx Slot: {RxSlot!.Value}" : ".");
         }
 
         private byte[] GetNewDeviceAddress()

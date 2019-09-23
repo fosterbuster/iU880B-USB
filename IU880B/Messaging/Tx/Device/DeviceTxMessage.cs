@@ -19,7 +19,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.Device
         /// </summary>
         /// <param name="messageIdentifier">Message type identifier.</param>
         /// <param name="payload">the payload.</param>
-        protected DeviceTxMessage(DeviceManagementMessageIdentifier messageIdentifier, List<byte> payload)
+        protected DeviceTxMessage(DeviceManagementMessageIdentifier messageIdentifier, List<byte>? payload)
             : base(EndpointIdentifier.DeviceManager, payload)
         {
             _messageIdentifier = messageIdentifier;

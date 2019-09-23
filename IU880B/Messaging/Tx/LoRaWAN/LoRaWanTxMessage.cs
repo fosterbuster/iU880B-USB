@@ -19,7 +19,7 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRaWAN
         /// </summary>
         /// <param name="messageIdentifier">the message identifier.</param>
         /// <param name="payload">the payload.</param>
-        protected LoRaWanTxMessage(LoRaWanMessageIdentifier messageIdentifier, List<byte> payload)
+        protected LoRaWanTxMessage(LoRaWanMessageIdentifier messageIdentifier, List<byte>? payload)
             : base(EndpointIdentifier.LoRaWANModem, payload)
         {
             _messageIdentifier = messageIdentifier;

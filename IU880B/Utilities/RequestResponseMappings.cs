@@ -43,7 +43,7 @@ namespace FosterBuster.IU880B.Utilities
         /// </summary>
         /// <param name="type">the type to look up.</param>
         /// <returns>The equivalent <see cref="Messaging.Rx.RxHciMessage"/> for the passed <paramref name="type"/>. Null if no match.</returns>
-        public static Type GetResponseTypeFor(Type type)
+        public static Type? GetResponseTypeFor(Type type)
         {
             if (_requestToResponse.TryGetValue(type, out Type result))
             {
@@ -58,7 +58,7 @@ namespace FosterBuster.IU880B.Utilities
         /// </summary>
         /// <param name="type">the type to look up.</param>
         /// <returns>The equivalent <see cref="Messaging.Tx.TxHciMessage"/> for the passed <paramref name="type"/>. Null if no match.</returns>
-        public static Type GetRequestTypeFor(Type type)
+        public static Type? GetRequestTypeFor(Type type)
         {
             if (_responseToRequest.TryGetValue(type, out Type result))
             {

@@ -21,8 +21,8 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation
         public SetJoinParametersRequest(string applicationEui, string applicationKey)
             : base(LoRaWanMessageIdentifier.SetJoinParameterRequest, new List<byte>())
         {
-            Payload.AddRange(applicationEui.HexStringToBytes());
-            Payload.AddRange(applicationKey.HexStringToBytes());
+            Payload!.AddRange(applicationEui.HexStringToBytes());
+            Payload!.AddRange(applicationKey.HexStringToBytes());
         }
 
         /// <summary>
@@ -33,8 +33,8 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation
         public SetJoinParametersRequest(IList<byte> applicationEui, IList<byte> applicationKey)
             : base(LoRaWanMessageIdentifier.SetJoinParameterRequest, new List<byte>())
         {
-            Payload.AddRange(applicationEui);
-            Payload.AddRange(applicationKey);
+            Payload!.AddRange(applicationEui);
+            Payload!.AddRange(applicationKey);
         }
     }
 }

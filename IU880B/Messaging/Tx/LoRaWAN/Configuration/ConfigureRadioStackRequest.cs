@@ -43,13 +43,13 @@ namespace FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Configuration
             var optionsByte = BuildOptionsByte(adaptiveDataRateEnabled, dutyCycleControlEnabled, isClassC, extendedOutputFormatEnabled, rxMacForwardingEnabled);
             byte bandIndex = 0x01; // Doesn't seem to work with any other value than 1. Could be a bug, but I can't be assed to investigate. Or maybe something with regions...
 
-            Payload.Add(dataRateByte);
-            Payload.Add(trxLevel);
-            Payload.Add(optionsByte);
-            Payload.Add(powerSavingByte);
-            Payload.Add(retryAttemps);
-            Payload.Add(bandIndex);
-            Payload.Add(headerMacCmdCapacity);
+            Payload!.Add(dataRateByte);
+            Payload!.Add(trxLevel);
+            Payload!.Add(optionsByte);
+            Payload!.Add(powerSavingByte);
+            Payload!.Add(retryAttemps);
+            Payload!.Add(bandIndex);
+            Payload!.Add(headerMacCmdCapacity);
         }
 
         private byte BuildOptionsByte(bool adaptiveDataRateEnabled, bool dutyCycleControlEnabled, bool isClassC, bool extendedOutputFormatEnabled, bool rxMacForwardingEnabled)

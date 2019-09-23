@@ -17,7 +17,7 @@ namespace FosterBuster.IU880B.DependencyInjection
         /// On UNIX-like systems this shoud be /dev/ttySOMETHINGSOMETHING.
         /// On Windows this would be COM[number].
         /// </remarks>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the baud rate for the iU880B-stick.
