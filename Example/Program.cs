@@ -6,18 +6,17 @@
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Logging;
 using FosterBuster.Extensions;
-using FosterBuster.IU880B.Messaging.Rx;
 using FosterBuster.IU880B;
-
 using FosterBuster.IU880B.DependencyInjection;
-using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data;
-using FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation;
+using FosterBuster.IU880B.Messaging.Rx;
 using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Activation;
 using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Configuration;
+using FosterBuster.IU880B.Messaging.Rx.LoRaWAN.Data;
+using FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Activation;
 using FosterBuster.IU880B.Messaging.Tx.LoRaWAN.Data;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace Example
 {

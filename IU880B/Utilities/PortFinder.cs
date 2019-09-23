@@ -57,7 +57,10 @@ namespace FosterBuster.IU880B.Utilities
         /// Checks if any device is available.
         /// </summary>
         /// <returns>A boolean indicating if any device is available.</returns>
-        public bool DeviceAvailable() => !string.IsNullOrEmpty(FindConnectedPort());
+        public bool DeviceAvailable()
+        {
+            return !string.IsNullOrEmpty(FindConnectedPort());
+        }
 
         private string? FindConnectedPort()
         {
@@ -71,7 +74,7 @@ namespace FosterBuster.IU880B.Utilities
 
                 foreach (ManagementBaseObject mgmtObj in search.Get())
                 {
-                    ManagementObject? queryObj = mgmtObj as ManagementObject;
+                    var queryObj = mgmtObj as ManagementObject;
 
                     var name = queryObj?[_mgmtObjQuery] as string;
 
